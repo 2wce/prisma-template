@@ -1,60 +1,6 @@
-import { makeExecutableSchema } from 'graphql-tools'
-import { Context } from './context'
+import { Context } from '../../../context'
 
-const typeDefs = `
-type User {
-  email: String!
-  id: ID!
-  name: String
-  posts: [Post!]!
-}
-
-type Post {
-  author: User
-  content: String
-  id: ID!
-  published: Boolean!
-  title: String!
-}
-
-type Query {
-  feed: [Post!]!
-  filterPosts(searchString: String): [Post!]!
-  post(where: PostWhereUniqueInput!): Post
-}
-
-type Mutation {
-  createDraft(authorEmail: String, content: String, title: String!): Post!
-  deleteOnePost(where: PostWhereUniqueInput!): Post
-  publish(id: ID): Post
-  signupUser(data: UserCreateInput!): User!
-}
-
-input PostWhereUniqueInput {
-  id: ID
-}
-
-input UserCreateInput {
-  email: String!
-  id: ID
-  name: String
-  posts: PostCreateManyWithoutPostsInput
-}
-
-input PostCreateManyWithoutPostsInput {
-  connect: [PostWhereUniqueInput!]
-  create: [PostCreateWithoutAuthorInput!]
-}
-
-input PostCreateWithoutAuthorInput {
-  content: String
-  id: ID
-  published: Boolean
-  title: String!
-}
-`
-
-const resolvers = {
+export default {
   Query: {
     feed: (parent, args, ctx: Context) => {
       return ctx.prisma.post.findMany({
@@ -101,18 +47,6 @@ const resolvers = {
         data: { published: true },
       })
     },
-    signupUser: (parent, args, ctx: Context) => {
-      return ctx.prisma.user.create(args)
-    },
-  },
-  User: {
-    posts: (parent, args, ctx: Context) => {
-      return ctx.prisma.user
-        .findOne({
-          where: { id: parent.id },
-        })
-        .posts()
-    },
   },
   Post: {
     author: (parent, args, ctx: Context) => {
@@ -124,8 +58,3 @@ const resolvers = {
     },
   },
 }
-
-export const schema = makeExecutableSchema({
-  resolvers,
-  typeDefs,
-})
