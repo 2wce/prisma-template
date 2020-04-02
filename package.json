@@ -1,5 +1,10 @@
 {
-  "name": "typescript-graphql",
+  "name": "prisma-template",
+  "author": {
+    "name": "Kudakwashe Terrence Mupeni",
+    "url": "http://2wce.github.io",
+    "email": "kudamupeni@icloud.com"
+  },
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpileOnly src",
     "test": "jest"
