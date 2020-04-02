@@ -15,7 +15,7 @@ git clone git@github.com:2wce/prisma-template.git
 Install npm dependencies:
 
 ```
-cd prisma-examples
+cd prisma-template
 npm install
 ```
 
