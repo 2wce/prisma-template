@@ -1,10 +1,13 @@
-import { Context } from '../../../utils'
+import { Context, getUserId } from '../../../utils'
 
 export default {
   Query: {
     me: (parent, args, ctx: Context) => {
-      return ctx.prisma.post.findMany({
-        where: { published: true },
+      const userId = getUserId(ctx)
+      return ctx.prisma.user.findOne({
+        where: {
+          id: Number(userId),
+        },
       })
     },
   },
