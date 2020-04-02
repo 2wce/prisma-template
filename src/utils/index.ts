@@ -1,3 +1,4 @@
+import { PrismaClient } from '@prisma/client'
 import { verify } from 'jsonwebtoken'
 import { Context, createContext } from './context'
 
@@ -16,4 +17,6 @@ function getUserId(context: Context) {
   }
 }
 
-export { Context, createContext, getUserId, APP_SECRET }
+const getPrismaTestInstance = new PrismaClient()
+
+export { Context, createContext, getUserId, APP_SECRET, getPrismaTestInstance }
