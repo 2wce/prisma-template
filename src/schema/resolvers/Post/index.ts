@@ -18,7 +18,7 @@ export default {
       })
     },
     post: (parent, args, ctx: Context) => {
-      return ctx.prisma.post.findOne({
+      return ctx.prisma.post.findUnique({
         where: { id: Number(args.where.id) },
       })
     },
@@ -51,7 +51,7 @@ export default {
   Post: {
     author: (parent, args, ctx: Context) => {
       return ctx.prisma.post
-        .findOne({
+        .findUnique({
           where: { id: parent.id },
         })
         .author()
