@@ -2,12 +2,12 @@ import { Context } from '../../../utils'
 
 export default {
   Query: {
-    feed: (parent: any, args: any, ctx: Context) => {
+    feed: (_parent: any, _args: any, ctx: Context) => {
       return ctx.prisma.post.findMany({
         where: { published: true },
       })
     },
-    filterPosts: (parent: any, args: { searchString: any }, ctx: Context) => {
+    filterPosts: (_parent: any, args: { searchString: any }, ctx: Context) => {
       return ctx.prisma.post.findMany({
         where: {
           OR: [
@@ -17,7 +17,7 @@ export default {
         },
       })
     },
-    post: (parent: any, args: { where: { id: any } }, ctx: Context) => {
+    post: (_parent: any, args: { where: { id: any } }, ctx: Context) => {
       return ctx.prisma.post.findUnique({
         where: { id: Number(args.where.id) },
       })
@@ -25,7 +25,7 @@ export default {
   },
   Mutation: {
     createDraft: (
-      parent: any,
+      _parent: any,
       args: { title: any; content: any; authorEmail: any },
       ctx: {
         prisma: {
@@ -54,7 +54,7 @@ export default {
       })
     },
     deleteOnePost: (
-      parent: any,
+      _parent: any,
       args: { where: { id: number } },
       ctx: Context,
     ) => {
@@ -62,7 +62,7 @@ export default {
         where: { id: Number(args.where.id) },
       })
     },
-    publish: (parent: any, args: { id: number }, ctx: Context) => {
+    publish: (_parent: any, args: { id: number }, ctx: Context) => {
       return ctx.prisma.post.update({
         where: { id: Number(args.id) },
         data: { published: true },
@@ -70,7 +70,7 @@ export default {
     },
   },
   Post: {
-    author: (parent: { id: number }, args: any, ctx: Context) => {
+    author: (parent: { id: number }, _args: any, ctx: Context) => {
       return ctx.prisma.post
         .findUnique({
           where: { id: parent.id },
