@@ -2,7 +2,7 @@ import { Context, getUserId } from '../../../utils'
 
 export default {
   Query: {
-    me: (parent, args, ctx: Context) => {
+    me: (_parent: any, _args: any, ctx: Context) => {
       const userId = getUserId(ctx)
       return ctx.prisma.user.findUnique({
         where: {
@@ -12,12 +12,12 @@ export default {
     },
   },
   Mutation: {
-    signupUser: (parent, args, ctx: Context) => {
+    signupUser: (_parent: any, args: any, ctx: Context) => {
       return ctx.prisma.user.create(args)
     },
   },
   User: {
-    posts: (parent, args, ctx: Context) => {
+    posts: (parent: { id: number }, _args: any, ctx: Context) => {
       return ctx.prisma.user
         .findUnique({
           where: { id: parent.id },

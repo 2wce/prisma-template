@@ -56,7 +56,7 @@ describe('Successful post queries', () => {
   })
 })
 
-afterAll(async done => {
-  await getPrismaTestInstance.disconnect()
+afterAll(async (done) => {
+  await getPrismaTestInstance.$disconnect()
   done()
 })
