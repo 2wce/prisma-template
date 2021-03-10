@@ -4,32 +4,14 @@ exports[`Successful post queries can get feed with published posts 1`] = `
 Array [
   Object {
     "authorId": 1,
-    "content": "https://graphqlweekly.com/",
-    "id": 2,
+    "content": "My Content",
+    "id": 1,
     "published": true,
-    "title": "Subscribe to GraphQL Weekly for community news ",
+    "title": "Post",
   },
 ]
 `;
 
-exports[`Successful post queries can get filtered posts with valid search string 1`] = `
-Array [
-  Object {
-    "authorId": 1,
-    "content": "https://graphqlweekly.com/",
-    "id": 2,
-    "published": true,
-    "title": "Subscribe to GraphQL Weekly for community news ",
-  },
-]
-`;
+exports[`Successful post queries can get filtered posts with valid search string 1`] = `Array []`;
 
-exports[`Successful post queries can get post with valid id 1`] = `
-Object {
-  "authorId": 1,
-  "content": "https://graphqlweekly.com/",
-  "id": 2,
-  "published": true,
-  "title": "Subscribe to GraphQL Weekly for community news ",
-}
-`;
+exports[`Successful post queries can get post with valid id 1`] = `null`;
