@@ -5,32 +5,34 @@
     "url": "http://2wce.github.io",
     "email": "kudamupeni@icloud.com"
   },
+  "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --no-notify --respawn --transpileOnly src",
+    "start": "ts-node-dev --respawn --transpile-only src",
+    "migrate": "prisma migrate dev --preview-feature",
     "test": "jest"
   },
   "dependencies": {
-    "@prisma/cli": "^2.12.0",
-    "@prisma/client": "^2.12.0",
+    "@prisma/client": "^2.18.0",
     "graphql": "14.6.0",
     "graphql-import-node": "0.0.4",
-    "graphql-shield": "^7.2.2",
-    "graphql-tools": "4.0.7",
+    "graphql-shield": "^7.5.0",
+    "graphql-tools": "7.0.4",
     "graphql-yoga": "1.18.3",
-    "jest": "^25.2.4",
+    "jest": "^26.6.3",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.4",
-    "@types/lodash": "^4.14.149",
-    "@types/node": "12.12.34",
-    "@types/ws": "7.2.3",
-    "apollo-server-core": "^2.19.0",
-    "ts-jest": "^25.3.0",
-    "ts-node": "8.8.1",
-    "ts-node-dev": "1.0.0-pre.44",
-    "typescript": "3.8.3"
+    "@types/jest": "^26.0.20",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "14.14.33",
+    "@types/ws": "7.4.0",
+    "apollo-server-core": "^2.21.1",
+    "prisma": "^2.18.0",
+    "ts-jest": "^26.5.3",
+    "ts-node": "9.1.1",
+    "ts-node-dev": "1.1.6",
+    "typescript": "4.2.3"
   },
   "prettier": {
     "singleQuote": true,
@@ -41,6 +43,6 @@
     "node": ">=10.0.0"
   },
   "resolutions": {
-    "apollo-server-core": "2.19.0 "
+    "apollo-server-core": "^2.21.1"
   }
 }

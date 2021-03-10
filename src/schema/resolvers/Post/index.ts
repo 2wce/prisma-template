@@ -2,12 +2,12 @@ import { Context } from '../../../utils'
 
 export default {
   Query: {
-    feed: (parent, args, ctx: Context) => {
+    feed: (parent: any, args: any, ctx: Context) => {
       return ctx.prisma.post.findMany({
         where: { published: true },
       })
     },
-    filterPosts: (parent, args, ctx: Context) => {
+    filterPosts: (parent: any, args: { searchString: any }, ctx: Context) => {
       return ctx.prisma.post.findMany({
         where: {
           OR: [
@@ -17,14 +17,31 @@ export default {
         },
       })
     },
-    post: (parent, args, ctx: Context) => {
+    post: (parent: any, args: { where: { id: any } }, ctx: Context) => {
       return ctx.prisma.post.findUnique({
         where: { id: Number(args.where.id) },
       })
     },
   },
   Mutation: {
-    createDraft: (parent, args, ctx) => {
+    createDraft: (
+      parent: any,
+      args: { title: any; content: any; authorEmail: any },
+      ctx: {
+        prisma: {
+          post: {
+            create: (arg0: {
+              data: {
+                title: any
+                content: any
+                published: boolean
+                author: { connect: { email: any } }
+              }
+            }) => any
+          }
+        }
+      },
+    ) => {
       return ctx.prisma.post.create({
         data: {
           title: args.title,
@@ -36,12 +53,16 @@ export default {
         },
       })
     },
-    deleteOnePost: (parent, args, ctx: Context) => {
+    deleteOnePost: (
+      parent: any,
+      args: { where: { id: number } },
+      ctx: Context,
+    ) => {
       return ctx.prisma.post.delete({
         where: { id: Number(args.where.id) },
       })
     },
-    publish: (parent, args, ctx: Context) => {
+    publish: (parent: any, args: { id: number }, ctx: Context) => {
       return ctx.prisma.post.update({
         where: { id: Number(args.id) },
         data: { published: true },
@@ -49,7 +70,7 @@ export default {
     },
   },
   Post: {
-    author: (parent, args, ctx: Context) => {
+    author: (parent: { id: number }, args: any, ctx: Context) => {
       return ctx.prisma.post
         .findUnique({
           where: { id: parent.id },
