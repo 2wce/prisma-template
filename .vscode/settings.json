@@ -1,0 +1,4 @@
+{
+  "editor.defaultFormatter": "Prisma.prisma",
+  "editor.formatOnSave": true
+}
