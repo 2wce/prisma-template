@@ -8,7 +8,10 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only src",
+    "generate": "prisma generate",
+    "studio": "prisma studio",
     "migrate": "prisma migrate dev --preview-feature",
+    "postmigrate": "yarn generate",
     "test": "jest"
   },
   "dependencies": {
