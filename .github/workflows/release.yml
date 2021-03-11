@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         # Run the steps below with the following versions of Node.js
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [12.x]
     steps:
       # Fetch the latest commit
       - name: Checkout
