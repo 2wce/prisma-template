@@ -1,4 +1,19 @@
 {
   "editor.defaultFormatter": "Prisma.prisma",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "todohighlight.keywords": [
+    "DEBUG:",
+    "DEMO:",
+    {
+        "text": "NOTE:",
+        "color": "#ff0000",
+        "backgroundColor": "yellow",
+        "overviewRulerColor": "grey"
+    },
+    {
+        "text": "HACK:",
+        "color": "#000",
+        "isWholeLine": false,
+    }
+  ]
 }

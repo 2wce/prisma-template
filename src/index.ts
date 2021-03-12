@@ -1,6 +1,6 @@
 import * as express from 'express'
 import { ApolloServer } from 'apollo-server-express'
-import { schema } from './schema'
+import schema from './schema'
 import { createContext } from './utils'
 
 const app = express()

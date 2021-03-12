@@ -2,11 +2,15 @@ import { Context } from '../../../utils'
 
 export default {
   Query: {
-    feed: (_parent: any, _args: any, ctx: Context) => {
+    feed: async(_parent: any, _args: any, ctx: Context) => {
+      // @DEMO: RAW QUERY
+      // const result = await ctx.prisma.$queryRaw('SELECT * FROM Post where published = true;')
+
       return ctx.prisma.post.findMany({
         where: { published: true },
       })
     },
+    // @DEMO: FILTERING
     filterPosts: (_parent: any, args: { searchString: any }, ctx: Context) => {
       return ctx.prisma.post.findMany({
         where: {
@@ -27,21 +31,9 @@ export default {
     createDraft: (
       _parent: any,
       args: { title: any; content: any; authorEmail: any },
-      ctx: {
-        prisma: {
-          post: {
-            create: (arg0: {
-              data: {
-                title: any
-                content: any
-                published: boolean
-                author: { connect: { email: any } }
-              }
-            }) => any
-          }
-        }
-      },
+      ctx: Context,
     ) => {
+      // @DEMO: TRANSACTION DEMO
       return ctx.prisma.post.create({
         data: {
           title: args.title,
@@ -70,6 +62,7 @@ export default {
     },
   },
   Post: {
+    // @DEMO: RELATIONS DEMO
     author: (parent: { id: number }, _args: any, ctx: Context) => {
       return ctx.prisma.post
         .findUnique({
