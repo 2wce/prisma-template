@@ -24,5 +24,7 @@ model User {
   email   String  @unique
   name    String?
   surname String?
+  //dob     String  @DEMO: Test adding required field without default
+  //dob     String?
   posts   Post[]
 }
