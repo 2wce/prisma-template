@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/2wce/prisma-template/compare/v1.0.0...v1.1.0) (2021-08-10)
+
+
+### Features
+
+* change to gql schema ([eed4147](https://github.com/2wce/prisma-template/commit/eed414742255f870ac779839a4bbb07078e2ff85))
+* update tests ([64bdba8](https://github.com/2wce/prisma-template/commit/64bdba8b5db007bc8a34884a61900251c1c0f68c))
+* upgrade prisma & apollo ([f8a5a5a](https://github.com/2wce/prisma-template/commit/f8a5a5a0493f6a165a929403f4e6f2fa1f064c69))
+
 # 1.0.0 (2021-03-11)
 
 
