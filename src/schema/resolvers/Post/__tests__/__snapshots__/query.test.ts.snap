@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Successful post queries can get feed with published posts 1`] = `undefined`;
+
+exports[`Successful post queries can get filtered posts with valid search string 1`] = `undefined`;
+
+exports[`Successful post queries can get post with valid id 1`] = `undefined`;
