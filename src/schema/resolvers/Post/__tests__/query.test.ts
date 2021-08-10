@@ -1,5 +1,13 @@
-import { getPrismaTestInstance } from '../../../utils'
-import postResolvers from './index'
+import { Context, createMockContext, MockContext } from '../../../../utils'
+import postResolvers from '../index'
+
+let mockCtx: MockContext
+let context: Context
+
+beforeEach(() => {
+  mockCtx = createMockContext()
+  context = mockCtx as unknown as Context
+})
 
 describe('Successful post queries', () => {
   it('can get filtered posts with valid search string', async () => {
@@ -8,10 +16,6 @@ describe('Successful post queries', () => {
       Query: { filterPosts },
     } = postResolvers
     const args = { searchString: 'Subscribe to' }
-    const context = {
-      prisma: getPrismaTestInstance,
-      request: {},
-    }
 
     // test
     const posts = await filterPosts({}, args, context)
@@ -25,10 +29,6 @@ describe('Successful post queries', () => {
     const {
       Query: { feed },
     } = postResolvers
-    const context = {
-      prisma: getPrismaTestInstance,
-      request: {},
-    }
 
     // test
     const posts = await feed({}, {}, context)
@@ -42,10 +42,7 @@ describe('Successful post queries', () => {
     const {
       Query: { post },
     } = postResolvers
-    const context = {
-      prisma: getPrismaTestInstance,
-      request: {},
-    }
+
     const args = { where: { id: 2 } }
 
     // test
@@ -54,9 +51,4 @@ describe('Successful post queries', () => {
     // assert
     expect(result).toMatchSnapshot()
   })
-})
-
-afterAll(async (done) => {
-  await getPrismaTestInstance.$disconnect()
-  done()
 })

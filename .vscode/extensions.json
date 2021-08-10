@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "michelemelluso.code-beautifier",
+    "esbenp.prettier-vscode",
+    "prisma.prisma",
+    "mikestead.dotenv",
+    "kumar-harsh.graphql-for-vscode",
+    "wayou.vscode-todo-highlight",
+    "jpoissonnier.vscode-styled-components",
+    "sonarsource.sonarlint-vscode"
+  ]
+}

@@ -1,5 +1,5 @@
-import { rule, shield } from 'graphql-shield'
-import { getUserId } from '../utils'
+import { allow, rule, shield } from 'graphql-shield'
+import { getUserId } from '../../utils'
 
 const rules = {
   isAuthenticatedUser: rule()((_parent, _args, context) => {
@@ -22,7 +22,7 @@ const rules = {
 export const permissions = shield({
   Query: {
     me: rules.isAuthenticatedUser,
-    filterPosts: rules.isAuthenticatedUser,
+    filterPosts: allow,
     post: rules.isAuthenticatedUser,
   },
   Mutation: {
