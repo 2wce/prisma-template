@@ -1,9 +1,6 @@
-import { ApolloServer } from 'apollo-server-express'
-import * as express from 'express'
+import { ApolloServer } from 'apollo-server'
 import { schema } from './schema'
 import { createContext } from './utils'
-
-const app = express()
 
 const server = new ApolloServer({
   schema,
@@ -14,8 +11,7 @@ const server = new ApolloServer({
   context: createContext,
 })
 
-server.applyMiddleware({ app, path: '/' })
-
-app.listen({ port: 4000 }, () =>
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`),
-)
+// The `listen` method launches a web server.
+server.listen().then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`)
+})
