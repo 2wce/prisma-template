@@ -1,5 +1,5 @@
-import * as express from 'express'
 import { ApolloServer } from 'apollo-server-express'
+import * as express from 'express'
 import { schema } from './schema'
 import { createContext } from './utils'
 
@@ -7,6 +7,10 @@ const app = express()
 
 const server = new ApolloServer({
   schema,
+  // only enable debug in development
+  debug: process.env.NODE_ENV === 'development',
+  // only enable introspection for development
+  introspection: process.env.NODE_ENV === 'development',
   context: createContext,
 })
 
