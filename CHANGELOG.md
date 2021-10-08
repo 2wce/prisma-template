@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/2wce/prisma-template/compare/v1.1.0...v1.2.0) (2021-10-08)
+
+
+### Features
+
+* upgrade packages ([2b5ba2a](https://github.com/2wce/prisma-template/commit/2b5ba2a69edf1ec7978c70b6d8045b675348c2a5))
+
 # [1.1.0](https://github.com/2wce/prisma-template/compare/v1.0.0...v1.1.0) (2021-08-10)
 
 
