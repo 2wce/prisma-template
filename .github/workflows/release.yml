@@ -4,7 +4,7 @@ name: Test and release
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -16,7 +16,7 @@ jobs:
         node-version: [12.x]
 
     env:
-      DATABASE_URL: "mysql://root:root@localhost:3306/test"
+      DATABASE_URL: 'mysql://root:root@localhost:3306/test'
 
     steps:
       # Start pre-installed Ubuntu mysql service
@@ -25,7 +25,7 @@ jobs:
 
       # Create test DB for e2e tests
       - name: Create test DB
-        run: mysql -e 'CREATE DATABASE test;' -u root -p root
+        run: mysql -e 'CREATE DATABASE test;' --user=root --password=root
 
       # Fetch the latest commit
       - name: Checkout
