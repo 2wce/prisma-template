@@ -2,6 +2,6 @@
 
 exports[`Auth - Login returns an error if email has invalid email format 1`] = `[AuthenticationError: Invalid Email Format]`;
 
-exports[`Auth - Login returns an error if invalid input is parsed 1`] = `[AuthenticationError: Please provide your phone number or your e-mail.]`;
+exports[`Auth - Login returns an error if invalid input is parsed 1`] = `[AuthenticationError: Please provide your e-mail.]`;
 
 exports[`Auth - Login returns an error if only email is parsed 1`] = `[AuthenticationError: User not found.]`;
