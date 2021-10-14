@@ -34,6 +34,14 @@ export const issue = (payload: any, jwtOptions = {}) => {
   )
 }
 
+export const isHashed = (password: string) => {
+  if (typeof password !== 'string' || !password) {
+    return false
+  }
+
+  return password.split('$').length === 4
+}
+
 export const hashPassword = (password: string): Promise<string | null> => {
   return new Promise((resolve, reject) => {
     if (!password || isHashed(password)) {
@@ -47,14 +55,6 @@ export const hashPassword = (password: string): Promise<string | null> => {
       })
     }
   })
-}
-
-export const isHashed = (password: string) => {
-  if (typeof password !== 'string' || !password) {
-    return false
-  }
-
-  return password.split('$').length === 4
 }
 
 export const validatePassword = (password: string, hash: string) => {
