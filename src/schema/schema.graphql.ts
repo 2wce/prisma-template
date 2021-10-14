@@ -7,9 +7,19 @@ export default gql`
     title: String!
   }
 
-  input UserCreateInput {
-    email: String!
-    name: String
+  input ResetPasswordInput {
+    password: String!
+    passwordConfirmation: String!
+    code: Int!
+  }
+
+  input ForgotPasswordInput {
+    email: String
+  }
+
+  type AuthPayload {
+    jwt: String
+    user: User
   }
 
   type Post {
@@ -36,6 +46,10 @@ export default gql`
   }
 
   type Mutation {
+    #auth
+    resetPassword(input: ResetPasswordInput!): AuthPayload
+    forgotPassword(input: ForgotPasswordInput!): Boolean
+
     createDraft(input: CreateDraftInput!): Post!
     deleteOnePost(id: Int!): Post
     publish(id: Int!): Post
