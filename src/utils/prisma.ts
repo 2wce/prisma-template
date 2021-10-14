@@ -4,9 +4,15 @@ import { getUserId } from './jwt'
 
 const prisma = new PrismaClient()
 
+export interface ContextEvent {
+  headers: {
+    authorization: string
+    Authorization: string
+  }
+}
 export interface Context {
   prisma: PrismaClient
-  userId: string
+  request?: ContextEvent
 }
 
 export type MockContext = {
@@ -20,7 +26,7 @@ export const createMockContext = (): MockContext => {
 }
 
 // add prisma to context for resolvers
-export function createContext(request: any) {
+export function createContext(request: Context) {
   const userId = getUserId(request)
   return {
     ...request,
