@@ -51,7 +51,7 @@ export default gql`
     forgotPassword(input: ForgotPasswordInput!): Boolean
 
     createDraft(input: CreateDraftInput!): Post!
-    deleteOnePost(id: Int!): Post
+    deletePost(id: Int!): Post
     publish(id: Int!): Post
     # @TODO: add createUser mutation
     #signup(input: UserCreateInput!): User!
