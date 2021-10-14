@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/2wce/prisma-template/compare/v1.2.1...v1.3.0) (2021-10-14)
+
+
+### Features
+
+* remove any type ([1e81c51](https://github.com/2wce/prisma-template/commit/1e81c5126ebfa03b1945c0d01d30777c633569dc))
+* setup graphql codegen ([41acf6a](https://github.com/2wce/prisma-template/commit/41acf6a41667468e6e656771a02530415d5056f8))
+
 ## [1.2.1](https://github.com/2wce/prisma-template/compare/v1.2.0...v1.2.1) (2021-10-14)
 
 ### Bug Fixes
