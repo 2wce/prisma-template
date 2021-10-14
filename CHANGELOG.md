@@ -1,9 +1,8 @@
 ## [1.2.1](https://github.com/2wce/prisma-template/compare/v1.2.0...v1.2.1) (2021-10-14)
 
-
 ### Bug Fixes
 
-* declare function before use ([ab13b8e](https://github.com/2wce/prisma-template/commit/ab13b8e6a4415e3665b36c52eb88ac999a0e97b8))
+- declare function before use ([ab13b8e](https://github.com/2wce/prisma-template/commit/ab13b8e6a4415e3665b36c52eb88ac999a0e97b8))
 
 # [1.2.0](https://github.com/2wce/prisma-template/compare/v1.1.0...v1.2.0) (2021-10-08)
 
