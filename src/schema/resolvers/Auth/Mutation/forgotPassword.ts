@@ -37,13 +37,13 @@ export default async (
       throw new AuthenticationError('Invalid Email Format')
     }
 
-    // search for user by phone number
+    // search for user by email
     const user = await prisma.user.findFirst({
       where: { email: identifier },
     })
 
     if (!user) {
-      throw new AuthenticationError('Invalid phone number or email.')
+      throw new AuthenticationError('Invalid email.')
     }
 
     // Generate OTP token.

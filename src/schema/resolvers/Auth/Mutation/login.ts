@@ -10,9 +10,7 @@ export default async (
   try {
     // The identifier is required.
     if (!args.email) {
-      throw new AuthenticationError(
-        'Please provide your phone number or your e-mail.',
-      )
+      throw new AuthenticationError('Please provide your e-mail.')
     }
 
     // Check if the provided email is valid or not.
