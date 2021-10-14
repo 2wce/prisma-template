@@ -15,7 +15,7 @@ describe('Successful post queries', () => {
     const {
       Query: { filterPosts },
     } = postResolvers
-    const args = { searchString: 'Subscribe to' }
+    const args = { searchTerm: 'Subscribe to' }
 
     // test
     const posts = await filterPosts({}, args, context)
@@ -43,7 +43,7 @@ describe('Successful post queries', () => {
       Query: { post },
     } = postResolvers
 
-    const args = { where: { id: 2 } }
+    const args = { id: 2 }
 
     // test
     const result = await post({}, args, context)
