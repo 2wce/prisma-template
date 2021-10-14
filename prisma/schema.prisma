@@ -17,11 +17,13 @@ model Post {
 }
 
 model User {
-  id      Int     @id @default(autoincrement())
-  email   String  @unique
-  name    String?
-  surname String?
-  posts   Post[]
+  id               Int     @id @default(autoincrement())
+  email            String  @unique
+  name             String?
+  surname          String?
+  resetPasswordOtp Int?
+  password         String?
+  posts            Post[]
 }
 
 // model Profile {

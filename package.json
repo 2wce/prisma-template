@@ -10,11 +10,13 @@
   },
   "license": "MIT",
   "scripts": {
+    "prestart": "graphql-codegen",
     "start": "ts-node-dev --respawn --transpile-only src",
     "generate": "prisma generate",
     "studio": "prisma studio",
-    "migrate": "prisma migrate dev --preview-feature",
+    "migrate": "prisma migrate dev",
     "postmigrate": "yarn generate",
+    "pretest": "graphql-codegen",
     "test": "jest"
   },
   "dependencies": {
@@ -28,9 +30,13 @@
     "graphql-shield": "^7.5.0",
     "graphql-tools": "^8.1.0",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "nodemailer": "^6.7.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.2.0",
+    "@graphql-codegen/typescript": "1.22.3",
+    "@graphql-codegen/typescript-resolvers": "1.19.4",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
@@ -48,8 +54,8 @@
     "jest-mock-extended": "^2.0.2-beta2",
     "prisma": "3.1.1",
     "semantic-release": "^17.4.4",
-    "strip-ansi": "6.0.1",
     "string-width": "5.0.1",
+    "strip-ansi": "6.0.1",
     "ts-jest": "^27.0.5",
     "ts-node": "10.2.1",
     "ts-node-dev": "1.1.8",

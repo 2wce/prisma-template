@@ -1,8 +1,9 @@
+import { User } from '@prisma/client'
 import { Context, getUserId } from '../../../utils'
 
 export default {
   Query: {
-    me: (_parent: any, _args: any, ctx: Context) => {
+    me: (_parent: unknown, _args: unknown, ctx: Context) => {
       const userId = getUserId(ctx)
       return ctx.prisma.user.findUnique({
         where: {
@@ -11,13 +12,8 @@ export default {
       })
     },
   },
-  Mutation: {
-    signupUser: (_parent: any, args: any, ctx: Context) => {
-      return ctx.prisma.user.create(args)
-    },
-  },
   User: {
-    posts: (parent: { id: number }, _args: any, ctx: Context) => {
+    posts: (parent: User, _args: unknown, ctx: Context) => {
       return ctx.prisma.user
         .findUnique({
           where: { id: parent.id },
