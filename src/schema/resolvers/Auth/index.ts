@@ -11,10 +11,11 @@ import {
   formatError,
   generateRandomOtp,
   hashPassword,
+  hasValidResetPasswordInput,
   issue,
+  passwordReset,
   sendEmail,
 } from '../../../utils'
-import { passwordReset } from './templates'
 
 export default {
   Mutation: {
@@ -66,12 +67,7 @@ export default {
     ) => {
       const params = args.input
 
-      if (
-        params.password &&
-        params.passwordConfirmation &&
-        params.password === params.passwordConfirmation &&
-        params.code
-      ) {
+      if (hasValidResetPasswordInput(params)) {
         const user = await prisma.user.findFirst({
           where: { resetPasswordOtp: params.code },
         })
