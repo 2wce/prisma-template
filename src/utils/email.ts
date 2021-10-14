@@ -9,8 +9,8 @@ export const sendEmail = async (
   try {
     // create reusable transporter object using the default SMTP transport
     let transporter = createTransport({
-      host: 'email-smtp.eu-west-1.amazonaws.com',
-      port: 587,
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
       secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.SMTP_USERNAME, // generated ethereal user
