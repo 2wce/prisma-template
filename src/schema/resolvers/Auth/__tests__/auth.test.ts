@@ -13,7 +13,7 @@ describe('Auth - Login', () => {
   it('returns an error if invalid input is parsed', async () => {
     // setup
     const {
-      Query: { login },
+      Mutation: { login },
     } = resolvers
 
     const args = { email: '' }
@@ -28,7 +28,7 @@ describe('Auth - Login', () => {
   it('returns an error if only email is parsed', async () => {
     // setup
     const {
-      Query: { login },
+      Mutation: { login },
     } = resolvers
 
     const args = { email: 't@g.com' }
@@ -43,7 +43,7 @@ describe('Auth - Login', () => {
   it('returns an error if email has invalid email format', async () => {
     // setup
     const {
-      Query: { login },
+      Mutation: { login },
     } = resolvers
 
     const args = { email: 't' }
