@@ -7,3 +7,8 @@ export const formatError = (nameOfFunction: string, error: Error) => {
 // RegExp to check if email is valid
 export const emailRegExp =
   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+export const generateRandomOtp = (noOfDigits: number) => {
+  const multiplier = Math.pow(10, noOfDigits - 1)
+  return Math.floor(multiplier + Math.random() * (9 * multiplier))
+}
