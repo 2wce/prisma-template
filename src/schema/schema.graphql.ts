@@ -1,37 +1,10 @@
 import { gql } from 'apollo-server'
 
 export default gql`
-  type User {
+  input CreateDraftInput {
     email: String!
-    id: ID!
-    name: String
-    posts: [Post!]!
-  }
-
-  type Post {
-    author: User
     content: String
-    id: ID!
-    published: Boolean!
     title: String!
-  }
-
-  type Query {
-    me: User
-    feed: [Post!]!
-    filterPosts(searchString: String): [Post!]!
-    post(where: PostWhereUniqueInput!): Post
-  }
-
-  type Mutation {
-    createDraft(authorEmail: String!, content: String, title: String!): Post!
-    deleteOnePost(where: PostWhereUniqueInput!): Post
-    publish(id: Int!): Post
-    signupUser(data: UserCreateInput!): User!
-  }
-
-  input PostWhereUniqueInput {
-    id: Int!
   }
 
   input UserCreateInput {
@@ -39,15 +12,33 @@ export default gql`
     name: String
   }
 
-  input PostCreateManyWithoutPostsInput {
-    connect: [PostWhereUniqueInput!]
-    create: [PostCreateWithoutAuthorInput!]
+  type Post {
+    id: ID!
+    title: String!
+    content: String
+    published: Boolean!
+    author: User
   }
 
-  input PostCreateWithoutAuthorInput {
-    content: String
-    id: Int
-    published: Boolean
-    title: String!
+  type User {
+    id: ID!
+    email: String!
+    name: String
+    posts: [Post!]!
+  }
+
+  type Query {
+    me: User
+    feed: [Post!]!
+    filterPosts(searchTerm: String): [Post!]!
+    post(id: Int!): Post
+  }
+
+  type Mutation {
+    createDraft(input: CreateDraftInput!): Post!
+    deleteOnePost(id: Int!): Post
+    publish(id: Int!): Post
+    # @TODO: add createUser mutation
+    #signup(input: UserCreateInput!): User!
   }
 `
