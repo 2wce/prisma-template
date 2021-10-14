@@ -5,7 +5,6 @@
 - fix deep source issues ([e19f490](https://github.com/2wce/prisma-template/commit/e19f4909e49b73e20a72d5424901e9e692733a9a))
 - fix login import ([eeadace](https://github.com/2wce/prisma-template/commit/eeadacec5fa864668f3736c68a34c9194b51ba8c))
 
-
 ### Features
 
 - add reset flow mutations ([505b97f](https://github.com/2wce/prisma-template/commit/505b97f1c774b574e7d633456c483fbcd5daafc8))
@@ -14,7 +13,6 @@
 # [1.5.0](https://github.com/2wce/prisma-template/compare/v1.4.0...v1.5.0) (2021-10-14)
 
 ### Features
-
 
 - add login query ([6287112](https://github.com/2wce/prisma-template/commit/62871129f4f2bb7d314f0aaf196f75db25fe6484))
 
