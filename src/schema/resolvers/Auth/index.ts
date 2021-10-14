@@ -103,7 +103,7 @@ export default {
       { prisma }: Context,
     ) => {
       try {
-        let { email } = args.input
+        const { email } = args.input
 
         // The identifier is required.
         if (!email) {
