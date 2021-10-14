@@ -1,9 +1,23 @@
-import { AuthenticationError } from 'apollo-server'
-import { QueryLoginArgs } from '../../../generated'
-import { Context, emailRegExp, formatError, issue } from '../../../utils'
+import { ApolloError, AuthenticationError } from 'apollo-server'
+import { template } from 'lodash'
+import {
+  MutationForgotPasswordArgs,
+  MutationResetPasswordArgs,
+  QueryLoginArgs,
+} from '../../../generated'
+import {
+  Context,
+  emailRegExp,
+  formatError,
+  generateRandomOtp,
+  hashPassword,
+  issue,
+  sendEmail,
+} from '../../../utils'
+import { passwordReset } from './templates'
 
 export default {
-  Query: {
+  Mutation: {
     login: async (
       _parent: unknown,
       args: QueryLoginArgs,
@@ -43,6 +57,118 @@ export default {
       } catch (error) {
         formatError('login', error)
         return error
+      }
+    },
+    resetPassword: async (
+      _parent: any,
+      args: MutationResetPasswordArgs,
+      { prisma }: Context,
+    ) => {
+      const params = args.input
+
+      if (
+        params.password &&
+        params.passwordConfirmation &&
+        params.password === params.passwordConfirmation &&
+        params.code
+      ) {
+        const user = await prisma.user.findFirst({
+          where: { resetPasswordOtp: params.code },
+        })
+
+        if (!user) {
+          throw new ApolloError('Could not reset password.')
+        }
+
+        const password = await hashPassword(params.password)
+
+        if (password) {
+          await prisma.user.update({
+            where: { id: user.id },
+            data: { resetPasswordOtp: null, password },
+          })
+        }
+
+        return {
+          jwt: issue({ id: user.id }),
+          user,
+        }
+      } else {
+        throw new AuthenticationError('Incorrect params provided.')
+      }
+    },
+    forgotPassword: async (
+      _parent: any,
+      args: MutationForgotPasswordArgs,
+      { prisma }: Context,
+    ) => {
+      try {
+        let { email } = args.input
+
+        // The identifier is required.
+        if (!email) {
+          throw new AuthenticationError('Please provide your e-mail.')
+        }
+
+        let identifier = ''
+
+        // if email provided check if it's valid
+        if (email) {
+          // Check if the provided email is valid or not.
+          const isEmail = emailRegExp.test(email)
+
+          // if valid then set as identifier
+          if (isEmail) {
+            const formattedEmail = email.toLowerCase()
+
+            identifier = formattedEmail
+          } else {
+            throw new AuthenticationError('Invalid Email Format')
+          }
+        } else {
+          throw new AuthenticationError('Invalid Email Format')
+        }
+
+        // search for user by phone number
+        const user = await prisma.user.findFirst({
+          where: { email: identifier },
+        })
+
+        if (!user) {
+          throw new AuthenticationError('Invalid phone number or email.')
+        }
+
+        // Generate OTP token.
+        let resetPasswordOtp: number | string = generateRandomOtp(5)
+
+        // Update the user.
+        await prisma.user.update({
+          where: { id: user.id },
+          data: { resetPasswordOtp },
+        })
+
+        // Format OTP for readability in email
+        resetPasswordOtp = resetPasswordOtp.toString().split('').join(' ')
+
+        // // populate template with dynamic values
+        const compiled = template(passwordReset)
+
+        const message = compiled({
+          NAME: user.name,
+          OTP: resetPasswordOtp,
+        })
+
+        try {
+          // Send an email to the user.
+          await sendEmail(user.email, message, 'Forgot Password')
+        } catch (err) {
+          throw new Error('Failed to send email')
+        }
+
+        return true
+      } catch (error) {
+        formatError('forgotPassword', error)
+        return false
       }
     },
   },
