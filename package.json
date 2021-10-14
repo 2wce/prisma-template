@@ -16,6 +16,7 @@
     "studio": "prisma studio",
     "migrate": "prisma migrate dev --preview-feature",
     "postmigrate": "yarn generate",
+    "pretest": "graphql-codegen",
     "test": "jest"
   },
   "dependencies": {
