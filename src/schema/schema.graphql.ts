@@ -28,6 +28,7 @@ export default gql`
   }
 
   type Query {
+    login(email: String!): String
     me: User
     feed: [Post!]!
     filterPosts(searchTerm: String): [Post!]!
