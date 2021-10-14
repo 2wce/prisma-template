@@ -60,7 +60,7 @@ export default {
       }
     },
     resetPassword: async (
-      _parent: any,
+      _parent: unknown,
       args: MutationResetPasswordArgs,
       { prisma }: Context,
     ) => {
@@ -98,7 +98,7 @@ export default {
       }
     },
     forgotPassword: async (
-      _parent: any,
+      _parent: unknown,
       args: MutationForgotPasswordArgs,
       { prisma }: Context,
     ) => {
