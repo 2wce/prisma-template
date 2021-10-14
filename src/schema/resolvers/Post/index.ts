@@ -1,13 +1,24 @@
+import { Post } from '@prisma/client'
+import {
+  MutationCreateDraftArgs,
+  MutationDeleteOnePostArgs,
+  MutationPublishArgs,
+  QueryPostArgs,
+} from '../../../generated'
 import { Context } from '../../../utils'
 
 export default {
   Query: {
-    feed: (_parent: any, _args: any, ctx: Context) => {
+    feed: (_parent: unknown, _args: unknown, ctx: Context) => {
       return ctx.prisma.post.findMany({
         where: { published: true },
       })
     },
-    filterPosts: (_parent: any, args: { searchString: any }, ctx: Context) => {
+    filterPosts: (
+      _parent: unknown,
+      args: { searchString: string },
+      ctx: Context,
+    ) => {
       return ctx.prisma.post.findMany({
         where: {
           OR: [
@@ -17,32 +28,23 @@ export default {
         },
       })
     },
-    post: (_parent: any, args: { where: { id: any } }, ctx: Context) => {
-      return ctx.prisma.post.findUnique({
-        where: { id: Number(args.where.id) },
+    post: (
+      _parent: unknown,
+      { where: { id } }: QueryPostArgs,
+      { prisma }: Context,
+    ) => {
+      return prisma.post.findUnique({
+        where: { id },
       })
     },
   },
   Mutation: {
     createDraft: (
-      _parent: any,
-      args: { title: any; content: any; authorEmail: any },
-      ctx: {
-        prisma: {
-          post: {
-            create: (arg0: {
-              data: {
-                title: any
-                content: any
-                published: boolean
-                author: { connect: { email: any } }
-              }
-            }) => any
-          }
-        }
-      },
+      _parent: unknown,
+      args: MutationCreateDraftArgs,
+      { prisma }: Context,
     ) => {
-      return ctx.prisma.post.create({
+      return prisma.post.create({
         data: {
           title: args.title,
           content: args.content,
@@ -54,24 +56,24 @@ export default {
       })
     },
     deleteOnePost: (
-      _parent: any,
-      args: { where: { id: number } },
-      ctx: Context,
+      _parent: unknown,
+      { where: { id } }: MutationDeleteOnePostArgs,
+      { prisma }: Context,
     ) => {
-      return ctx.prisma.post.delete({
-        where: { id: Number(args.where.id) },
+      return prisma.post.delete({
+        where: { id },
       })
     },
-    publish: (_parent: any, args: { id: number }, ctx: Context) => {
+    publish: (_parent: unknown, { id }: MutationPublishArgs, ctx: Context) => {
       return ctx.prisma.post.update({
-        where: { id: Number(args.id) },
+        where: { id },
         data: { published: true },
       })
     },
   },
   Post: {
-    author: (parent: { id: number }, _args: any, ctx: Context) => {
-      return ctx.prisma.post
+    author: (parent: Post, _args: unknown, { prisma }: Context) => {
+      return prisma.post
         .findUnique({
           where: { id: parent.id },
         })

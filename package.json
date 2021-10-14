@@ -10,11 +10,13 @@
   },
   "license": "MIT",
   "scripts": {
+    "prestart": "graphql-codegen",
     "start": "ts-node-dev --respawn --transpile-only src",
     "generate": "prisma generate",
     "studio": "prisma studio",
     "migrate": "prisma migrate dev --preview-feature",
     "postmigrate": "yarn generate",
+    "pretest": "graphql-codegen",
     "test": "jest"
   },
   "dependencies": {
@@ -31,6 +33,9 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.2.0",
+    "@graphql-codegen/typescript": "1.22.3",
+    "@graphql-codegen/typescript-resolvers": "1.19.4",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
