@@ -1,9 +1,8 @@
 # [1.7.0](https://github.com/2wce/prisma-template/compare/v1.6.0...v1.7.0) (2021-10-14)
 
-
 ### Features
 
-* add reset password input helper ([cc05ab2](https://github.com/2wce/prisma-template/commit/cc05ab22c99b7424992d0b159ba92d5eb1dcdfe3))
+- add reset password input helper ([cc05ab2](https://github.com/2wce/prisma-template/commit/cc05ab22c99b7424992d0b159ba92d5eb1dcdfe3))
 
 # [1.6.0](https://github.com/2wce/prisma-template/compare/v1.5.0...v1.6.0) (2021-10-14)
 
