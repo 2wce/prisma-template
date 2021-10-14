@@ -3,6 +3,7 @@ import {
   MutationCreateDraftArgs,
   MutationDeleteOnePostArgs,
   MutationPublishArgs,
+  QueryFilterPostsArgs,
   QueryPostArgs,
 } from '../../../generated'
 import { Context } from '../../../utils'
@@ -16,23 +17,23 @@ export default {
     },
     filterPosts: (
       _parent: unknown,
-      args: { searchString: string },
+      args: QueryFilterPostsArgs,
       ctx: Context,
     ) => {
+      const where = args.searchTerm
+        ? {
+            OR: [
+              { title: { contains: args.searchTerm } },
+              { content: { contains: args.searchTerm } },
+            ],
+          }
+        : {}
+
       return ctx.prisma.post.findMany({
-        where: {
-          OR: [
-            { title: { contains: args.searchString } },
-            { content: { contains: args.searchString } },
-          ],
-        },
+        where,
       })
     },
-    post: (
-      _parent: unknown,
-      { where: { id } }: QueryPostArgs,
-      { prisma }: Context,
-    ) => {
+    post: (_parent: unknown, { id }: QueryPostArgs, { prisma }: Context) => {
       return prisma.post.findUnique({
         where: { id },
       })
@@ -41,23 +42,25 @@ export default {
   Mutation: {
     createDraft: (
       _parent: unknown,
-      args: MutationCreateDraftArgs,
+      { input }: MutationCreateDraftArgs,
       { prisma }: Context,
     ) => {
+      const { title, content, email } = input
+
       return prisma.post.create({
         data: {
-          title: args.title,
-          content: args.content,
+          title,
+          content,
           published: false,
           author: {
-            connect: { email: args.authorEmail },
+            connect: { email },
           },
         },
       })
     },
     deleteOnePost: (
       _parent: unknown,
-      { where: { id } }: MutationDeleteOnePostArgs,
+      { id }: MutationDeleteOnePostArgs,
       { prisma }: Context,
     ) => {
       return prisma.post.delete({

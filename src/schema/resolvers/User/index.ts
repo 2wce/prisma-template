@@ -1,5 +1,4 @@
 import { User } from '@prisma/client'
-import { MutationSignupUserArgs } from 'src/generated'
 import { Context, getUserId } from '../../../utils'
 
 export default {
@@ -11,15 +10,6 @@ export default {
           id: Number(userId),
         },
       })
-    },
-  },
-  Mutation: {
-    signupUser: (
-      _parent: unknown,
-      args: MutationSignupUserArgs,
-      ctx: Context,
-    ) => {
-      return ctx.prisma.user.create(args)
     },
   },
   User: {
