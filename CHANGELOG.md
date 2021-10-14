@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/2wce/prisma-template/compare/v1.4.0...v1.5.0) (2021-10-14)
+
+
+### Features
+
+* add login query ([6287112](https://github.com/2wce/prisma-template/commit/62871129f4f2bb7d314f0aaf196f75db25fe6484))
+
 # [1.4.0](https://github.com/2wce/prisma-template/compare/v1.3.0...v1.4.0) (2021-10-14)
 
 
