@@ -7,11 +7,10 @@
 
 # [1.4.0](https://github.com/2wce/prisma-template/compare/v1.3.0...v1.4.0) (2021-10-14)
 
-
 ### Features
 
-* cleanup schema & remove ambiquous inputs ([fcbf285](https://github.com/2wce/prisma-template/commit/fcbf2855b835acb34e4fac056b696dd98ef95b88))
-* remove signup for now ([5b8f366](https://github.com/2wce/prisma-template/commit/5b8f366f7a1e3bb7c77548cde04e584390200f19))
+- cleanup schema & remove ambiquous inputs ([fcbf285](https://github.com/2wce/prisma-template/commit/fcbf2855b835acb34e4fac056b696dd98ef95b88))
+- remove signup for now ([5b8f366](https://github.com/2wce/prisma-template/commit/5b8f366f7a1e3bb7c77548cde04e584390200f19))
 
 # [1.3.0](https://github.com/2wce/prisma-template/compare/v1.2.1...v1.3.0) (2021-10-14)
 
