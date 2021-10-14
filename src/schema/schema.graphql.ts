@@ -24,21 +24,19 @@ export default gql`
   }
 
   type Mutation {
-    createDraft(authorEmail: String, content: String, title: String!): Post!
+    createDraft(authorEmail: String!, content: String, title: String!): Post!
     deleteOnePost(where: PostWhereUniqueInput!): Post
-    publish(id: ID): Post
+    publish(id: Int!): Post
     signupUser(data: UserCreateInput!): User!
   }
 
   input PostWhereUniqueInput {
-    id: ID
+    id: Int!
   }
 
   input UserCreateInput {
     email: String!
-    id: ID
     name: String
-    posts: PostCreateManyWithoutPostsInput
   }
 
   input PostCreateManyWithoutPostsInput {
@@ -48,7 +46,7 @@ export default gql`
 
   input PostCreateWithoutAuthorInput {
     content: String
-    id: ID
+    id: Int
     published: Boolean
     title: String!
   }
