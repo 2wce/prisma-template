@@ -49,7 +49,7 @@ export const hashPassword = (password: string): Promise<string | null> => {
     if (!password || isHashed(password)) {
       resolve(null)
     } else {
-      hash(`${password}`, 10, (err, hash) => {
+      hash(`${password}`, process.env.SALT as string, (err, hash) => {
         if (err) {
           return reject(err)
         }
