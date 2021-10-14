@@ -112,19 +112,14 @@ export default {
 
         let identifier = ''
 
-        // if email provided check if it's valid
-        if (email) {
-          // Check if the provided email is valid or not.
-          const isEmail = emailRegExp.test(email)
+        // Check if the provided email is valid or not.
+        const isEmail = emailRegExp.test(email)
 
-          // if valid then set as identifier
-          if (isEmail) {
-            const formattedEmail = email.toLowerCase()
+        // if valid then set as identifier
+        if (isEmail) {
+          const formattedEmail = email.toLowerCase()
 
-            identifier = formattedEmail
-          } else {
-            throw new AuthenticationError('Invalid Email Format')
-          }
+          identifier = formattedEmail
         } else {
           throw new AuthenticationError('Invalid Email Format')
         }
