@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/2wce/prisma-template/compare/v1.9.0...v1.10.0) (2021-10-15)
+
+
+### Features
+
+* add docker compose ([c9bb18f](https://github.com/2wce/prisma-template/commit/c9bb18f22046ae00b0cd59114878834c80f592d1))
+* setup seeder utils ([148c6f9](https://github.com/2wce/prisma-template/commit/148c6f93df614dbb3468e32184f687fb37ce3dc6))
+* update deps ([213480a](https://github.com/2wce/prisma-template/commit/213480a00d865ea2ab76cf8511bae6f88b65d026))
+
 # [1.9.0](https://github.com/2wce/prisma-template/compare/v1.8.0...v1.9.0) (2021-10-15)
 
 ### Bug Fixes
