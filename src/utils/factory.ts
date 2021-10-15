@@ -12,7 +12,7 @@ export const userFactory = Factory.Sync.makeFactory<Prisma.UserCreateManyInput>(
   {
     name: Factory.Sync.each(() => name.firstName()),
     surname: Factory.Sync.each(() => name.lastName()),
-    email: Factory.Sync.each(() => internet.email()),
+    email: Factory.Sync.each((seq) => `seq_${seq}_${internet.email()}`),
     password: Factory.Sync.each(() => internet.password()),
   },
 )

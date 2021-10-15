@@ -18,10 +18,10 @@ beforeAll(async () => {
   }
 
   //create posts dummy data
-  const posts = postFactory.buildList(1)
+  const posts = postFactory.build({ id: 3 })
 
   // create user dummy data
-  const users = userFactory.buildList(1)
+  const users = userFactory.build({ id: 3, email: 'user3@email.com' })
 
   const res = await prisma.$transaction([
     prisma.post.createMany({
@@ -43,7 +43,7 @@ afterAll(async () => {
 })
 
 test('should publish existing post if id is valid', async () => {
-  const id = 1
+  const id = 3
   const args = { id }
 
   const result = await publish({}, args, context)
