@@ -9,10 +9,9 @@
 
 ### Features
 
-* delete post e2e ([2f12d81](https://github.com/2wce/prisma-template/commit/2f12d819ea87cc6b0ef8d186fc977bff37bf8c4b))
+- delete post e2e ([2f12d81](https://github.com/2wce/prisma-template/commit/2f12d819ea87cc6b0ef8d186fc977bff37bf8c4b))
 
 # [1.10.0](https://github.com/2wce/prisma-template/compare/v1.9.0...v1.10.0) (2021-10-15)
-
 
 ### Features
 
