@@ -4,9 +4,9 @@ import { Context } from '../../../../utils'
 export default (
   _parent: unknown,
   { input }: MutationCreateDraftArgs,
-  { prisma }: Context,
+  { prisma, userId }: Context,
 ) => {
-  const { title, content, email } = input
+  const { title, content } = input
 
   return prisma.post.create({
     data: {
@@ -14,7 +14,7 @@ export default (
       content,
       published: false,
       author: {
-        connect: { email },
+        connect: { id: userId },
       },
     },
   })
