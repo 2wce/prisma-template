@@ -4,7 +4,7 @@ name: Test and release
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -14,7 +14,19 @@ jobs:
       matrix:
         # Run the steps below with the following versions of Node.js
         node-version: [12.x]
+
+    env:
+      DATABASE_URL: 'mysql://root:root@localhost:3306/test'
+
     steps:
+      # Start pre-installed Ubuntu mysql service
+      - name: Start MySQL
+        run: sudo /etc/init.d/mysql start
+
+      # Create test DB for e2e tests
+      - name: Create test DB
+        run: mysql -e 'CREATE DATABASE test;' --user=root --password=root
+
       # Fetch the latest commit
       - name: Checkout
         uses: actions/checkout@v2
@@ -28,9 +40,15 @@ jobs:
       # Install package dependencies
       - name: Install
         run: npm ci
+
+      # Run migrations
+      - name: Migrate
+        run: npm run migrate
+
       # Run tests
       - name: Test
         run: npm test
+
   release:
     # Only release on push to main
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
