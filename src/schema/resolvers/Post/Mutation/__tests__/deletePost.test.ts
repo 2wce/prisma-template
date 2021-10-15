@@ -18,10 +18,10 @@ beforeAll(async () => {
   }
 
   //create posts dummy data
-  const posts = postFactory.buildList(1)
+  const posts = postFactory.build({ id: 2 })
 
   // create user dummy data
-  const users = userFactory.buildList(1)
+  const users = userFactory.build({ id: 2, email: 'user2@email.com' })
 
   const res = await prisma.$transaction([
     prisma.post.createMany({
@@ -43,7 +43,7 @@ afterAll(async () => {
 })
 
 test('should delete existing post if id is valid', async () => {
-  const id = 1
+  const id = 2
   const args = { id }
 
   const result = await deletePost({}, args, context)

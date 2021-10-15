@@ -1,5 +1,7 @@
-import { Context, createMockContext, MockContext } from '../../../../utils'
-import postResolvers from '../index'
+import { Context, createMockContext, MockContext } from '../../../../../utils'
+import feed from '../feed'
+import filterPosts from '../filterPosts'
+import post from '../post'
 
 let mockCtx: MockContext
 let context: Context
@@ -12,9 +14,6 @@ beforeEach(() => {
 describe('Successful post queries', () => {
   it('can get filtered posts with valid search string', async () => {
     // setup
-    const {
-      Query: { filterPosts },
-    } = postResolvers
     const args = { searchTerm: 'Subscribe to' }
 
     // test
@@ -25,11 +24,6 @@ describe('Successful post queries', () => {
   })
 
   it('can get feed with published posts', async () => {
-    // setup
-    const {
-      Query: { feed },
-    } = postResolvers
-
     // test
     const posts = await feed({}, {}, context)
 
@@ -39,10 +33,6 @@ describe('Successful post queries', () => {
 
   it('can get post with valid id', async () => {
     // setup
-    const {
-      Query: { post },
-    } = postResolvers
-
     const args = { id: 2 }
 
     // test
