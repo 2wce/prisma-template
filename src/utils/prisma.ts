@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import { mockDeep, MockProxy } from 'jest-mock-extended'
 import { getUserId } from './jwt'
 
-const prisma = new PrismaClient()
+export const prisma = new PrismaClient()
 
 export interface ContextEvent {
   headers: {

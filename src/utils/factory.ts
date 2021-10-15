@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient, PrismaPromise } from '@prisma/client'
+import { Prisma, PrismaClient } from '@prisma/client'
 import * as Factory from 'factory.ts'
 import { commerce, internet, name } from 'faker'
 
@@ -27,7 +27,6 @@ export const postFactory = Factory.Sync.makeFactory<Prisma.PostCreateManyInput>(
 
 export const clearData = async () => {
   try {
-    const transactions: PrismaPromise<unknown>[] = []
     await prisma.$executeRaw`SET FOREIGN_KEY_CHECKS = 0;`
 
     const tables: Array<TableList> =
@@ -36,22 +35,12 @@ export const clearData = async () => {
     for (const { TABLE_NAME } of tables) {
       if (TABLE_NAME !== '_prisma_migrations') {
         try {
-          transactions.push(prisma.$executeRawUnsafe(`TRUNCATE ${TABLE_NAME};`))
+          await prisma.$executeRawUnsafe(`TRUNCATE ${TABLE_NAME};`)
         } catch (error) {
           console.log({ error })
         }
       }
     }
-
-    await Promise.all(
-      transactions.map(async (transaction) => {
-        try {
-          await transaction
-        } catch (error) {
-          console.log({ error })
-        }
-      }),
-    )
 
     await prisma.$executeRaw`SET FOREIGN_KEY_CHECKS = 1;`
   } catch (error) {
