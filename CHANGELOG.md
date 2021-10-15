@@ -1,24 +1,21 @@
 # [1.9.0](https://github.com/2wce/prisma-template/compare/v1.8.0...v1.9.0) (2021-10-15)
 
-
 ### Bug Fixes
 
-* **ci:** replace shorthand with verbose args when specifying mysql creds ([238a0a8](https://github.com/2wce/prisma-template/commit/238a0a81764af43e27c4e4bbadda4af5ecf587e4))
-* **migrations:** add missing user email index migration ([9c033b0](https://github.com/2wce/prisma-template/commit/9c033b09fd15c66923ac76f4ec331ca67f0cd807))
-* **migrations:** reinitialise migrations for mysql ([91d505a](https://github.com/2wce/prisma-template/commit/91d505aec85d7e058a9a0a4a12e6d55f5570f07f))
-* **migrations:** reinitialise migrations to incorporate new sqlite migrations ([3816dec](https://github.com/2wce/prisma-template/commit/3816dec5559dc57b8b4182fd4ade3f992b278c04))
-
+- **ci:** replace shorthand with verbose args when specifying mysql creds ([238a0a8](https://github.com/2wce/prisma-template/commit/238a0a81764af43e27c4e4bbadda4af5ecf587e4))
+- **migrations:** add missing user email index migration ([9c033b0](https://github.com/2wce/prisma-template/commit/9c033b09fd15c66923ac76f4ec331ca67f0cd807))
+- **migrations:** reinitialise migrations for mysql ([91d505a](https://github.com/2wce/prisma-template/commit/91d505aec85d7e058a9a0a4a12e6d55f5570f07f))
+- **migrations:** reinitialise migrations to incorporate new sqlite migrations ([3816dec](https://github.com/2wce/prisma-template/commit/3816dec5559dc57b8b4182fd4ade3f992b278c04))
 
 ### Features
 
-* **ci:** configure mysql in release workflow ([b72101c](https://github.com/2wce/prisma-template/commit/b72101cc722c902438c0af6b4b958967344eb36b))
+- **ci:** configure mysql in release workflow ([b72101c](https://github.com/2wce/prisma-template/commit/b72101cc722c902438c0af6b4b958967344eb36b))
 
 # [1.8.0](https://github.com/2wce/prisma-template/compare/v1.7.0...v1.8.0) (2021-10-14)
 
-
 ### Features
 
-* implement tier stucture ([0e0c70e](https://github.com/2wce/prisma-template/commit/0e0c70eca0314b0a16705e3d525f3f7250e91e40))
+- implement tier stucture ([0e0c70e](https://github.com/2wce/prisma-template/commit/0e0c70eca0314b0a16705e3d525f3f7250e91e40))
 
 # [1.7.0](https://github.com/2wce/prisma-template/compare/v1.6.0...v1.7.0) (2021-10-14)
 
