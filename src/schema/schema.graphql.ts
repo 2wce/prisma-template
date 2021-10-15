@@ -38,7 +38,6 @@ export default gql`
   }
 
   type Query {
-    login(email: String!): String
     me: User
     feed: [Post!]!
     filterPosts(searchTerm: String): [Post!]!
@@ -47,6 +46,7 @@ export default gql`
 
   type Mutation {
     #auth
+    login(email: String!): String
     resetPassword(input: ResetPasswordInput!): AuthPayload
     forgotPassword(input: ForgotPasswordInput!): Boolean
 
