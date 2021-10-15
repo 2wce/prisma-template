@@ -1,16 +1,14 @@
 # [1.14.0](https://github.com/2wce/prisma-template/compare/v1.13.0...v1.14.0) (2021-10-15)
 
-
 ### Features
 
-* add create draft e2e ([c825490](https://github.com/2wce/prisma-template/commit/c825490530fe2fc1a4f99d74deabcd01229e5231))
+- add create draft e2e ([c825490](https://github.com/2wce/prisma-template/commit/c825490530fe2fc1a4f99d74deabcd01229e5231))
 
 # [1.13.0](https://github.com/2wce/prisma-template/compare/v1.12.0...v1.13.0) (2021-10-15)
 
-
 ### Features
 
-* refactor unt tests ([0763caf](https://github.com/2wce/prisma-template/commit/0763caf72943a93e83e46398d362e71e229adea8))
+- refactor unt tests ([0763caf](https://github.com/2wce/prisma-template/commit/0763caf72943a93e83e46398d362e71e229adea8))
 
 # [1.12.0](https://github.com/2wce/prisma-template/compare/v1.11.0...v1.12.0) (2021-10-15)
 
