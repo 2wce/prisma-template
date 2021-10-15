@@ -15,10 +15,9 @@
 
 # [1.8.0](https://github.com/2wce/prisma-template/compare/v1.7.0...v1.8.0) (2021-10-14)
 
-
 ### Features
 
-* implement tier stucture ([0e0c70e](https://github.com/2wce/prisma-template/commit/0e0c70eca0314b0a16705e3d525f3f7250e91e40))
+- implement tier stucture ([0e0c70e](https://github.com/2wce/prisma-template/commit/0e0c70eca0314b0a16705e3d525f3f7250e91e40))
 
 # [1.7.0](https://github.com/2wce/prisma-template/compare/v1.6.0...v1.7.0) (2021-10-14)
 
