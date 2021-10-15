@@ -16,10 +16,9 @@
 
 ### Features
 
-* add publish test ([d93c177](https://github.com/2wce/prisma-template/commit/d93c17798912085810fd07e9cf9d48b649e567e7))
+- add publish test ([d93c177](https://github.com/2wce/prisma-template/commit/d93c17798912085810fd07e9cf9d48b649e567e7))
 
 # [1.11.0](https://github.com/2wce/prisma-template/compare/v1.10.0...v1.11.0) (2021-10-15)
-
 
 ### Features
 
