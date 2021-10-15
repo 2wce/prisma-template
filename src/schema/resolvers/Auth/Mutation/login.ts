@@ -1,10 +1,10 @@
 import { AuthenticationError } from 'apollo-server'
-import { QueryLoginArgs } from '../../../../generated'
+import { MutationLoginArgs } from '../../../../generated'
 import { Context, emailRegExp, formatError, issue } from '../../../../utils'
 
 export default async (
   _parent: unknown,
-  args: QueryLoginArgs,
+  args: MutationLoginArgs,
   { prisma }: Context,
 ) => {
   try {

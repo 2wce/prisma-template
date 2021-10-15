@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         # Run the steps below with the following versions of Node.js
-        node-version: [12.x]
+        node-version: [14.x]
 
     env:
       DATABASE_URL: 'mysql://root:root@localhost:3306/test'
