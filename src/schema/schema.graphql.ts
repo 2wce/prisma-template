@@ -2,7 +2,6 @@ import { gql } from 'apollo-server'
 
 export default gql`
   input CreateDraftInput {
-    email: String!
     content: String
     title: String!
   }
