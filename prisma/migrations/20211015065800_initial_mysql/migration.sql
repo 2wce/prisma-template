@@ -15,6 +15,8 @@ CREATE TABLE `User` (
     `email` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191),
     `surname` VARCHAR(191),
+    `resetPasswordOtp` INTEGER,
+    `password` VARCHAR(191),
 
     UNIQUE INDEX `User_email_key`(`email`),
     PRIMARY KEY (`id`)
