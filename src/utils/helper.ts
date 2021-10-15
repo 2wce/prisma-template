@@ -15,7 +15,9 @@ export const generateRandomOtp = (noOfDigits: number): number => {
   return Math.floor(multiplier + Math.random() * (9 * multiplier))
 }
 
-export const hasValidResetPasswordInput = (params: ResetPasswordInput) => {
+export const hasValidResetPasswordInput = (
+  params: ResetPasswordInput,
+): boolean => {
   const { password, passwordConfirmation, code } = params
 
   // check if all values are present

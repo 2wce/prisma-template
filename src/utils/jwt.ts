@@ -36,7 +36,7 @@ export const issue = (payload: string | User | Buffer, jwtOptions = {}) => {
   return sign(clone(payload), process.env.JWT_SECRET as string, jwtOptions)
 }
 
-export const isHashed = (password: string) => {
+export const isHashed = (password: string): boolean => {
   if (typeof password !== 'string' || !password) {
     return false
   }
