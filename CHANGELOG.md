@@ -1,17 +1,16 @@
 # [1.15.0](https://github.com/2wce/prisma-template/compare/v1.14.0...v1.15.0) (2021-10-17)
 
 ### Features
+
 - add create draft e2e ([c825490](https://github.com/2wce/prisma-template/commit/c825490530fe2fc1a4f99d74deabcd01229e5231))
 
 - update post by id ([1b9c228](https://github.com/2wce/prisma-template/commit/1b9c2281b1ec2e84616c75e7ca3c13e504b81358))
-
 
 # [1.14.0](https://github.com/2wce/prisma-template/compare/v1.13.0...v1.14.0) (2021-10-15)
 
 ### Features
 
 - add create draft e2e ([c825490](https://github.com/2wce/prisma-template/commit/c825490530fe2fc1a4f99d74deabcd01229e5231))
-
 
 # [1.13.0](https://github.com/2wce/prisma-template/compare/v1.12.0...v1.13.0) (2021-10-15)
 
