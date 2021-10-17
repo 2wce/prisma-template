@@ -6,6 +6,12 @@ export default gql`
     title: String!
   }
 
+  input UpdatePostInput {
+    id: Int!
+    content: String
+    title: String
+  }
+
   input ResetPasswordInput {
     password: String!
     passwordConfirmation: String!
@@ -50,6 +56,7 @@ export default gql`
     forgotPassword(input: ForgotPasswordInput!): Boolean
 
     createDraft(input: CreateDraftInput!): Post!
+    updatePost(input: UpdatePostInput!): Post!
     deletePost(id: Int!): Post
     publish(id: Int!): Post
     # @TODO: add createUser mutation
