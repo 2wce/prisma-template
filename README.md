@@ -1,229 +1,153 @@
-# prisma-template
+<h1 align="center">
+  Prisma Template
+</h1>
 
-This example shows how to implement an **GraphQL server (SDL-first) with TypeScript** based on [Prisma Client](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/api), [graphql-yoga](https://github.com/prisma/graphql-yoga) and [graphql-tools](https://www.apollographql.com/docs/graphql-tools/). It is based on a SQLite database, you can find the database file with some dummy data at [`./prisma/dev.db`](./prisma/dev.db).
+![Release](https://github.com/2wce/prisma-template/actions/workflows/release.yml/badge.svg)
 
-## How to use
+## Getting Started
 
-### 1. Download example & install dependencies
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Click on use template
+### Prerequisites
 
-Install npm dependencies:
+Before we get started, we're going to need to make sure we have a few things installed and available on our machine.
 
-```
-cd prisma-template
-npm install
-```
+#### Node >= 12
 
-Note that this also generates Prisma Client JS into `node_modules/@prisma/client` via a `postinstall` hook of the `@prisma/client` package from your `package.json`.
+#### Docker
 
-### 2. Setting Database Credentials
+Use the installation guide from here:
 
-Create a .env file in the root of the project containing your database credentials
+https://www.docker.com/products/docker-desktop
 
-```
-DATABASE_URL="mysql://root:root@localhost:3306/test"
-```
-
-### 3. Start the GraphQL server
-
-Launch your GraphQL server with this command:
-
-```
-yarn start
-```
-
-Navigate to [http://localhost:4000](http://localhost:4000) in your browser to explore the API of your GraphQL server in a [GraphQL Playground](https://github.com/prisma/graphql-playground).
-
-## Using the GraphQL API
-
-The schema that specifies the API operations of your GraphQL server is defined in [`./src/schema/schema.graphql`](./src/schema/schema.graphql). Below are a number of operations that you can send to the API using the GraphQL Playground.
-
-Feel free to adjust any operation by adding or removing fields. The GraphQL Playground helps you with its auto-completion and query validation features.
-
-### Retrieve all published posts and their authors
-
-```graphql
-query {
-  feed {
-    id
-    title
-    content
-    published
-    author {
-      id
-      name
-      email
-    }
-  }
-}
-```
-
-<Details><Summary><strong>See more API operations</strong></Summary>
-
-### Create a new user
-
-```graphql
-mutation {
-  signupUser(data: { name: "Sarah", email: "sarah@prisma.io" }) {
-    id
-  }
-}
-```
-
-### Create a new draft
-
-```graphql
-mutation {
-  createDraft(
-    title: "Join the Prisma Slack"
-    content: "https://slack.prisma.io"
-    authorEmail: "alice@prisma.io"
-  ) {
-    id
-    published
-  }
-}
-```
-
-### Publish an existing draft
-
-```graphql
-mutation {
-  publish(id: __POST_ID__) {
-    id
-    published
-  }
-}
-```
-
-> **Note**: You need to replace the `__POST_ID__`-placeholder with an actual `id` from a `Post` item. You can find one e.g. using the `filterPosts`-query.
-
-### Search for posts with a specific title or content
-
-```graphql
-{
-  filterPosts(searchString: "graphql") {
-    id
-    title
-    content
-    published
-    author {
-      id
-      name
-      email
-    }
-  }
-}
-```
-
-### Retrieve a single post
-
-```graphql
-{
-  post(where: { id: __POST_ID__ }) {
-    id
-    title
-    content
-    published
-    author {
-      id
-      name
-      email
-    }
-  }
-}
-```
-
-> **Note**: You need to replace the `__POST_ID__`-placeholder with an actual `id` from a `Post` item. You can find one e.g. using the `filterPosts`-query.
-
-### Delete a post
-
-```graphql
-mutation {
-  deleteOnePost(where: { id: __POST_ID__ }) {
-    id
-  }
-}
-```
-
-> **Note**: You need to replace the `__POST_ID__`-placeholder with an actual `id` from a `Post` item. You can find one e.g. using the `filterPosts`-query.
-
-</Details>
-
-## Evolving the app
-
-Evolving the application typically requires four subsequent steps:
-
-1. Migrating the database schema using Prisma Migrate
-1. Generating Prisma Client to match the new database schema with `prisma generate`
-1. Use the updated Prisma Client in your application code
-
-For the following example scenario, assume you want to add a "profile" feature to the app where users can create a profile and write a short bio about themselves.
-
-### 1. Change your database schema using SQL
-
-The first step would be to add a new model, e.g. called `Profile`, to the prisma schema. You can do so by adding the following:
-
-```prisma
-model Profile {
-  id     Int    @id @default(autoincrement())
-  bio    String
-  user   User?  @relation(fields: [userId], references: [id])
-  userId Int?
-}
-```
-
-To generate the migration against the database, you can use the migrate script in your terminal & it will also run the prisma generate step for you, e.g.:
+##### MacOS
 
 ```bash
-yarn migrate
+curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 ```
 
-Note that we're adding a unique constraint to the foreign key on `user`, this means we're expressing a 1:1 relationship between `User` and `Profile`, i.e.: "one user has one profile".
+##### Other
 
-Your database & the Prisma Client are now aware of the new table, you should able to perform any operations to the `Profile` table using Prisma Client.
+See the installation guides available @ nodejs.org:
 
-#### Create a new profile for an existing user
+https://nodejs.org/en/download/package-manager/
 
-```ts
-const profile = await prisma.profile.create({
-  data: {
-    bio: 'Hello World',
-    user: {
-      connect: { email: 'alice@prisma.io' },
-    },
-  },
-})
+### Installing
+
+Below is a series of step by step instructions that tell you how to get a development env running.
+
+Create a local clone of the repository
+
+```bash
+git clone git@github.com:2wce/prisma-template.git
 ```
 
-#### Create a new user with a new profile
+Enter the cloned repositories' directory
 
-```ts
-const user = await prisma.user.create({
-  data: {
-    email: 'john@prisma.io',
-    name: 'John',
-    profile: {
-      create: {
-        bio: 'Hello World',
-      },
-    },
-  },
-})
+```bash
+cd prisma-template
 ```
 
-#### Update the profile of an existing user
+Create a `.env` file based on the [.env.example template](.env.example)
 
-```ts
-const userWithUpdatedProfile = await prisma.user.update({
-  where: { email: 'alice@prisma.io' },
-  data: {
-    profile: {
-      update: {
-        bio: 'Hello Friends',
-      },
-    },
-  },
-})
+If you have a local MySQL database you can use it's details in the `.env` file. If not, you can run the docker container & use it's default values.
+
+```bash
+docker compose up -d
 ```
+
+Export the contents of the created `.env` file to the current terminal session.
+
+```bash
+set -o allexport; source .env; set +o allexport
+```
+
+Install the projects dependencies
+
+```bash
+npm i
+```
+
+Start the projects development server
+
+```bash
+yarn dev
+```
+
+The project should now be available at http://localhost:4000
+
+![graphql playground](https://i.imgur.com/h1xqghS.png)
+
+Start the db viewer in another terminal to view your database
+
+```bash
+npx prisma studio
+```
+
+## Testing
+
+You can run local tests using
+
+```bash
+yarn test
+```
+
+## Example Flow
+
+You can find the example flow & queries in here: [ExampleFlow.md](ExampleFlow.md)
+
+## Deployment
+
+Deployments are handled by github actions, below is an overview of how the deployments work:
+
+1. Dependencies are installed with `npm i`
+2. Unit tests are run with `yarn test`
+
+## Environment Variables
+
+These are the environment variables required to successfully deploy the application.
+
+| key          | description |
+| ------------ | ----------- |
+| DATABASE_URL | DB url      |
+
+## Built With
+
+Details of the tech stack that has been used.
+
+- [Typescript](https://typescript.com/) - TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
+- [Prisma](https://www.prisma.io/) - Next-generation ORM
+  for Node.js and TypeScript
+
+## Versioning
+
+This project uses [SemVer](http://semver.org/) for versioning. Versioning occurs automatically in the pipelines using [Semantic Release](https://github.com/semantic-release/semantic-release). For the versions available, see the tags on this repository.
+
+## Changelog
+
+A running changelog can be found here: [CHANGELOG.md](CHANGELOG.md)
+
+## Authors
+
+- **Kudakwashe Mupeni** <kudamupeni@gmail.com>
+
+## Licenses
+
+```
+├─ MIT: 386
+├─ ISC: 32
+├─ BSD-3-Clause: 30
+├─ Apache-2.0: 11
+├─ BSD-2-Clause: 7
+├─ CC-BY-4.0: 1
+├─ (MIT AND BSD-3-Clause): 1
+├─ 0BSD: 1
+└─ (MIT OR CC0-1.0): 1
+```
+
+## Meta
+
+| Version | Author                                   | Date       |
+| ------- | ---------------------------------------- | ---------- |
+| 0.0.1   | Kudakwashe Mupeni <kudamupeni@gmail.com> | 20/09/2021 |
+| 0.0.2   | Kudakwashe Mupeni <kudamupeni@gmail.com> | 21/09/2021 |
