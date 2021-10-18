@@ -34,5 +34,6 @@ export const permissions = shield({
     createDraft: rules.isAuthenticatedUser,
     deletePost: rules.isPostOwner,
     publish: rules.isPostOwner,
+    updatePost: rules.isPostOwner,
   },
 })
