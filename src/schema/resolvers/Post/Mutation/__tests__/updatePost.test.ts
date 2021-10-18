@@ -13,9 +13,9 @@ beforeAll(async () => {
     }
 
     // create post dummy data
-    const posts = postFactory.build({id: 6})
+    const posts = postFactory.build({id: 2})
 // create user dummy data
-    const users = userFactory.build({id: 2, email: 'user1@email.com'})
+    const users = userFactory.build({id: 2, email: 'user2@email.com'})
 
     const res = await prisma.$transaction([
         prisma.post.createMany({data: posts}),
