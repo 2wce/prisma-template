@@ -6,6 +6,11 @@ export default gql`
     title: String!
   }
 
+  input SignupInput {
+    email: String!
+    name: String
+  }
+
   input UpdatePostInput {
     id: Int!
     content: String
@@ -51,6 +56,7 @@ export default gql`
 
   type Mutation {
     #auth
+    signup(input: SignupInput!): User!
     login(email: String!): String
     resetPassword(input: ResetPasswordInput!): AuthPayload
     forgotPassword(input: ForgotPasswordInput!): Boolean
@@ -59,7 +65,5 @@ export default gql`
     updatePost(input: UpdatePostInput!): Post!
     deletePost(id: Int!): Post
     publish(id: Int!): Post
-    # @TODO: add createUser mutation
-    #signup(input: UserCreateInput!): User!
   }
 `
