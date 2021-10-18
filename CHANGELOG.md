@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/2wce/prisma-template/compare/v1.16.0...v1.17.0) (2021-10-18)
+
+
+### Features
+
+* add signup unit tests ([2d27d0e](https://github.com/2wce/prisma-template/commit/2d27d0e80fbcfd6d310917baa1c817e5ee0b4ec7))
+
 # [1.16.0](https://github.com/2wce/prisma-template/compare/v1.15.0...v1.16.0) (2021-10-18)
 
 
