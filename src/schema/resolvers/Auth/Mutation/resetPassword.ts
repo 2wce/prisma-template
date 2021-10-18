@@ -2,6 +2,7 @@ import { ApolloError, AuthenticationError } from 'apollo-server'
 import { MutationResetPasswordArgs } from '../../../../generated'
 import {
   Context,
+  formatError,
   hashPassword,
   hasValidResetPasswordInput,
   issue,
@@ -14,29 +15,34 @@ export default async (
 ) => {
   const params = args.input
 
-  if (hasValidResetPasswordInput(params)) {
-    const user = await prisma.user.findFirst({
-      where: { resetPasswordOtp: params.code },
-    })
-
-    if (!user) {
-      throw new ApolloError('Could not reset password.')
-    }
-
-    const password = await hashPassword(params.password)
-
-    if (password) {
-      await prisma.user.update({
-        where: { id: user.id },
-        data: { resetPasswordOtp: null, password },
+  try {
+    if (hasValidResetPasswordInput(params)) {
+      const user = await prisma.user.findFirst({
+        where: { resetPasswordOtp: params.code },
       })
-    }
 
-    return {
-      jwt: issue({ id: user.id }),
-      user,
+      if (!user) {
+        throw new ApolloError('Could not reset password.')
+      }
+
+      const password = await hashPassword(params.password)
+
+      if (password) {
+        await prisma.user.update({
+          where: { id: user.id },
+          data: { resetPasswordOtp: null, password },
+        })
+      }
+
+      return {
+        jwt: issue({ id: user.id }),
+        user,
+      }
+    } else {
+      throw new AuthenticationError('Incorrect params provided.')
     }
-  } else {
-    throw new AuthenticationError('Incorrect params provided.')
+  } catch (error) {
+    formatError('resetPassword', error)
+    return error
   }
 }

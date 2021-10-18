@@ -1,3 +1,7 @@
+import {
+  MutationForgotPasswordArgs,
+  MutationResetPasswordArgs,
+} from '../../../../generated'
 import { Context, createMockContext, MockContext } from '../../../../utils'
 import resolvers from '../index'
 
@@ -95,7 +99,7 @@ describe('Auth - ForgotPassword', () => {
       Mutation: { forgotPassword },
     } = resolvers
 
-    const args = { input: { email: '' } }
+    const args: MutationForgotPasswordArgs = { input: { email: '' } }
 
     // test
     const result = await forgotPassword({}, args, context)
@@ -110,10 +114,50 @@ describe('Auth - ForgotPassword', () => {
       Mutation: { forgotPassword },
     } = resolvers
 
-    const args = { input: { email: 't@' } }
+    const args: MutationForgotPasswordArgs = { input: { email: 't@' } }
 
     // test
     const result = await forgotPassword({}, args, context)
+
+    // assert
+    expect(result).toMatchSnapshot()
+  })
+})
+
+describe('Auth - ResetPassword', () => {
+  it('returns an error if inputs are empty', async () => {
+    // setup
+    const {
+      Mutation: { resetPassword },
+    } = resolvers
+
+    const args: MutationResetPasswordArgs = {
+      input: { code: 0, password: '', passwordConfirmation: '' },
+    }
+
+    // test
+    const result = await resetPassword({}, args, context)
+
+    // assert
+    expect(result).toMatchSnapshot()
+  })
+
+  it('returns an error if password does not match confirmation', async () => {
+    // setup
+    const {
+      Mutation: { resetPassword },
+    } = resolvers
+
+    const args: MutationResetPasswordArgs = {
+      input: {
+        code: 12345,
+        passwordConfirmation: 'newpass',
+        password: 'password',
+      },
+    }
+
+    // test
+    const result = await resetPassword({}, args, context)
 
     // assert
     expect(result).toMatchSnapshot()

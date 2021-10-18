@@ -1,9 +1,21 @@
-# [1.18.0](https://github.com/2wce/prisma-template/compare/v1.17.0...v1.18.0) (2021-10-18)
+# [1.20.0](https://github.com/2wce/prisma-template/compare/v1.19.0...v1.20.0) (2021-10-18)
 
 
 ### Features
 
-* add forgot password unit test ([9a4cdc4](https://github.com/2wce/prisma-template/commit/9a4cdc4e9c7f49f3c268d36fdc99403c10ac3f9f))
+* add e2e test for post ([3085028](https://github.com/2wce/prisma-template/commit/3085028bfa28a7819b85a51ea903ed2bc6a2fd03))
+
+# [1.19.0](https://github.com/2wce/prisma-template/compare/v1.18.0...v1.19.0) (2021-10-18)
+
+### Features
+
+- reset password unit test ([72585d1](https://github.com/2wce/prisma-template/commit/72585d1ab3e7b9f9e25e00c9cfaf42ed45506f8b))
+
+# [1.18.0](https://github.com/2wce/prisma-template/compare/v1.17.0...v1.18.0) (2021-10-18)
+
+### Features
+
+- add forgot password unit test ([9a4cdc4](https://github.com/2wce/prisma-template/commit/9a4cdc4e9c7f49f3c268d36fdc99403c10ac3f9f))
 
 # [1.17.0](https://github.com/2wce/prisma-template/compare/v1.16.0...v1.17.0) (2021-10-18)
 
