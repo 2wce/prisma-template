@@ -55,3 +55,35 @@ describe('Auth - Login', () => {
     expect(result).toMatchSnapshot()
   })
 })
+
+describe('Auth - Signup', () => {
+  it('returns an error if email is empty string', async () => {
+    // setup
+    const {
+      Mutation: { signup },
+    } = resolvers
+
+    const args = { input: { email: '' } }
+
+    // test
+    const result = await signup({}, args, context)
+
+    // assert
+    expect(result).toMatchSnapshot()
+  })
+
+  it('returns an error if email is incorrect format', async () => {
+    // setup
+    const {
+      Mutation: { signup },
+    } = resolvers
+
+    const args = { input: { email: 't@' } }
+
+    // test
+    const result = await signup({}, args, context)
+
+    // assert
+    expect(result).toMatchSnapshot()
+  })
+})
