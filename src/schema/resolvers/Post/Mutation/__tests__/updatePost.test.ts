@@ -14,8 +14,8 @@ beforeAll(async () => {
 
     // create post dummy data
     const posts = postFactory.build({id: 6})
-    // create user dummy data
-    const users = userFactory.build({id: 4, email: 'user4@email.com'})
+// create user dummy data
+    const users = userFactory.build({id: 2, email: 'user1@email.com'})
 
     const res = await prisma.$transaction([
         prisma.post.createMany({data: posts}),
@@ -34,7 +34,7 @@ afterAll(async () => {
 
 
 test('should update existing post if id is valid', async () => {
-    const id = 4
+    const id = 2
     const args = {input: {id, title: 'Hello', content: 'howdy'}}
 
     const result = await updatePost({}, args, context)
