@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/2wce/prisma-template/compare/v1.21.0...v1.22.0) (2021-10-18)
+
+
+### Features
+
+* refactor update post mutation ([2d8e4ec](https://github.com/2wce/prisma-template/commit/2d8e4eca6b9692e102cc5b1bf4089347e8b9d631))
+
 # [1.21.0](https://github.com/2wce/prisma-template/compare/v1.20.0...v1.21.0) (2021-10-18)
 
 ### Bug Fixes
