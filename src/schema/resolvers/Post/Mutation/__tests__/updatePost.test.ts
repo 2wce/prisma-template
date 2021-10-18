@@ -1,6 +1,5 @@
 import {clearData, Context, postFactory, prisma, userFactory} from '../../../../../utils'
 import updatePost from "../updatePost";
-import exp from "constants";
 
 
 let context: Context
@@ -16,7 +15,7 @@ beforeAll(async () => {
     // create post dummy data
     const posts = postFactory.build({id: 6})
     // create user dummy data
-    const users = userFactory.build({id: 2, email: 'user1@email.com'})
+    const users = userFactory.build({id: 4, email: 'user4@email.com'})
 
     const res = await prisma.$transaction([
         prisma.post.createMany({data: posts}),
@@ -35,7 +34,7 @@ afterAll(async () => {
 
 
 test('should update existing post if id is valid', async () => {
-    const id = 2
+    const id = 4
     const args = {input: {id, title: 'Hello', content: 'howdy'}}
 
     const result = await updatePost({}, args, context)
