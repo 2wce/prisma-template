@@ -1,9 +1,8 @@
 # [1.19.0](https://github.com/2wce/prisma-template/compare/v1.18.0...v1.19.0) (2021-10-18)
 
-
 ### Features
 
-* reset password unit test ([72585d1](https://github.com/2wce/prisma-template/commit/72585d1ab3e7b9f9e25e00c9cfaf42ed45506f8b))
+- reset password unit test ([72585d1](https://github.com/2wce/prisma-template/commit/72585d1ab3e7b9f9e25e00c9cfaf42ed45506f8b))
 
 # [1.18.0](https://github.com/2wce/prisma-template/compare/v1.17.0...v1.18.0) (2021-10-18)
 
