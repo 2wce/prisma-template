@@ -1,5 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Auth - ForgotPassword returns an error if email is empty string 1`] = `false`;
+
+exports[`Auth - ForgotPassword returns an error if email is incorrect format 1`] = `false`;
+
 exports[`Auth - Login returns an error if email has invalid email format 1`] = `[AuthenticationError: Invalid Email Format]`;
 
 exports[`Auth - Login returns an error if invalid input is parsed 1`] = `[AuthenticationError: Please provide your e-mail.]`;
