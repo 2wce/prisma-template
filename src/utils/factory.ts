@@ -4,7 +4,7 @@ import { commerce, internet, name } from 'faker'
 
 const prisma = new PrismaClient()
 
-interface TableList {
+export interface TableList {
   TABLE_NAME: string
 }
 
