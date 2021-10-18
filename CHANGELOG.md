@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/2wce/prisma-template/compare/v1.15.0...v1.16.0) (2021-10-18)
+
+
+### Features
+
+* add signup mutation ([ec182b9](https://github.com/2wce/prisma-template/commit/ec182b9dfbe5411592f0f4b7418ee39fe1006a91))
+
 # [1.15.0](https://github.com/2wce/prisma-template/compare/v1.14.0...v1.15.0) (2021-10-17)
 
 ### Features
