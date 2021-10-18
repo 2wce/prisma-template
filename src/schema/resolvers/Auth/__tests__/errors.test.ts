@@ -87,3 +87,35 @@ describe('Auth - Signup', () => {
     expect(result).toMatchSnapshot()
   })
 })
+
+describe('Auth - ForgotPassword', () => {
+  it('returns an error if email is empty string', async () => {
+    // setup
+    const {
+      Mutation: { forgotPassword },
+    } = resolvers
+
+    const args = { input: { email: '' } }
+
+    // test
+    const result = await forgotPassword({}, args, context)
+
+    // assert
+    expect(result).toMatchSnapshot()
+  })
+
+  it('returns an error if email is incorrect format', async () => {
+    // setup
+    const {
+      Mutation: { forgotPassword },
+    } = resolvers
+
+    const args = { input: { email: 't@' } }
+
+    // test
+    const result = await forgotPassword({}, args, context)
+
+    // assert
+    expect(result).toMatchSnapshot()
+  })
+})
