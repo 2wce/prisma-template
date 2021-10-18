@@ -10,6 +10,10 @@ exports[`Auth - Login returns an error if invalid input is parsed 1`] = `[Authen
 
 exports[`Auth - Login returns an error if only email is parsed 1`] = `[AuthenticationError: User not found.]`;
 
+exports[`Auth - ResetPassword returns an error if inputs are empty 1`] = `[AuthenticationError: Incorrect params provided.]`;
+
+exports[`Auth - ResetPassword returns an error if password does not match confirmation 1`] = `[AuthenticationError: Incorrect params provided.]`;
+
 exports[`Auth - Signup returns an error if email is empty string 1`] = `[AuthenticationError: Please provide your e-mail.]`;
 
 exports[`Auth - Signup returns an error if email is incorrect format 1`] = `[AuthenticationError: Invalid Email Format]`;
