@@ -1,9 +1,8 @@
 # [1.23.0](https://github.com/2wce/prisma-template/compare/v1.22.0...v1.23.0) (2021-10-18)
 
-
 ### Features
 
-* add update post permission ([6cedc60](https://github.com/2wce/prisma-template/commit/6cedc60fbf9360f3e8f90dadb6fc6a5c54b73695))
+- add update post permission ([6cedc60](https://github.com/2wce/prisma-template/commit/6cedc60fbf9360f3e8f90dadb6fc6a5c54b73695))
 
 # [1.22.0](https://github.com/2wce/prisma-template/compare/v1.21.0...v1.22.0) (2021-10-18)
 
