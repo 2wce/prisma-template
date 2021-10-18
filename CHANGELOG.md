@@ -1,9 +1,18 @@
-# [1.20.0](https://github.com/2wce/prisma-template/compare/v1.19.0...v1.20.0) (2021-10-18)
+# [1.21.0](https://github.com/2wce/prisma-template/compare/v1.20.0...v1.21.0) (2021-10-18)
 
+### Bug Fixes
+
+- edit user email ([6ad5c4f](https://github.com/2wce/prisma-template/commit/6ad5c4fca3d5259b6186fa5af25ba589025b72aa))
 
 ### Features
 
-* add e2e test for post ([3085028](https://github.com/2wce/prisma-template/commit/3085028bfa28a7819b85a51ea903ed2bc6a2fd03))
+- try delete many ([84499ba](https://github.com/2wce/prisma-template/commit/84499ba0fc6c69f19ff8a8c0f704a08b6deeb8ad))
+
+# [1.20.0](https://github.com/2wce/prisma-template/compare/v1.19.0...v1.20.0) (2021-10-18)
+
+### Features
+
+- add e2e test for post ([3085028](https://github.com/2wce/prisma-template/commit/3085028bfa28a7819b85a51ea903ed2bc6a2fd03))
 
 # [1.19.0](https://github.com/2wce/prisma-template/compare/v1.18.0...v1.19.0) (2021-10-18)
 

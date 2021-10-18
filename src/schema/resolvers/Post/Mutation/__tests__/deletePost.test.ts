@@ -9,7 +9,7 @@ import deletePost from '../deletePost'
 
 let context: Context
 
-beforeAll(async () => {
+beforeEach(async () => {
   await clearData()
 
   context = {
@@ -36,7 +36,7 @@ beforeAll(async () => {
   console.assert(res.every((item) => item.count === 1))
 })
 
-afterAll(async () => {
+afterEach(async () => {
   await clearData()
 
   await prisma.$disconnect()
