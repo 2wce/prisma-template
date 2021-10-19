@@ -1,9 +1,8 @@
 # [1.24.0](https://github.com/2wce/prisma-template/compare/v1.23.0...v1.24.0) (2021-10-18)
 
-
 ### Features
 
-* update readme ([2d6504b](https://github.com/2wce/prisma-template/commit/2d6504ba28d3b567aded6166e5ba4a878cefff85))
+- update readme ([2d6504b](https://github.com/2wce/prisma-template/commit/2d6504ba28d3b567aded6166e5ba4a878cefff85))
 
 # [1.23.0](https://github.com/2wce/prisma-template/compare/v1.22.0...v1.23.0) (2021-10-18)
 
