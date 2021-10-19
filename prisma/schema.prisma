@@ -7,6 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Image {
+  id           Int    @id @default(autoincrement())
+  url          String
+  uploadedBy   User?  @relation(fields: [uploadedById], references: [id])
+  uploadedById Int?
+  post         Post   @relation(fields: [postId], references: [id])
+  postId       Int
+}
+
 model Post {
   id        Int     @id @default(autoincrement())
   title     String
@@ -14,6 +23,7 @@ model Post {
   published Boolean @default(false)
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  Int?
+  images    Image[]
 }
 
 model User {
@@ -24,6 +34,7 @@ model User {
   resetPasswordOtp Int?
   password         String?
   posts            Post[]
+  images           Image[]
 }
 
 // model Profile {
