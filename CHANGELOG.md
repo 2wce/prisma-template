@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/2wce/prisma-template/compare/v1.24.0...v1.25.0) (2021-10-19)
+
+
+### Features
+
+* add image model ([1f18ec1](https://github.com/2wce/prisma-template/commit/1f18ec109ef8d01e979fde5a9d82162d32f30511))
+
 # [1.24.0](https://github.com/2wce/prisma-template/compare/v1.23.0...v1.24.0) (2021-10-18)
 
 ### Features
