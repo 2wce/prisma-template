@@ -1,9 +1,8 @@
 # [1.27.0](https://github.com/2wce/prisma-template/compare/v1.26.0...v1.27.0) (2021-10-21)
 
-
 ### Features
 
-* add example docs ([e17df26](https://github.com/2wce/prisma-template/commit/e17df2636935c8d5293b8a4861152cc7dc496319))
+- add example docs ([e17df26](https://github.com/2wce/prisma-template/commit/e17df2636935c8d5293b8a4861152cc7dc496319))
 
 # [1.26.0](https://github.com/2wce/prisma-template/compare/v1.25.0...v1.26.0) (2021-10-21)
 
