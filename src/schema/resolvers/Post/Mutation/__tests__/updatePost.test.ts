@@ -1,4 +1,4 @@
-import {clearData, Context, postFactory, prisma, userFactory} from '../../../../../utils'
+import {clearData, Context, prisma, userFactory} from '../../../../../utils'
 import updatePost from "../updatePost";
 import createDraft from "../createDraft";
 
