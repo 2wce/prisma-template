@@ -10,7 +10,7 @@ export default (_parent: unknown, args: QueryPostsArgs, ctx: Context) => {
         ],
         published: true,
       }
-    : {}
+    : { published: true }
 
   return ctx.prisma.post.findMany({
     where,
