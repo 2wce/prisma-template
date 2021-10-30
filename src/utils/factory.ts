@@ -27,23 +27,6 @@ export const postFactory = Factory.Sync.makeFactory<Prisma.PostCreateManyInput>(
 
 export const clearData = async () => {
   try {
-    // await prisma.$executeRaw`SET FOREIGN_KEY_CHECKS = 0;`
-
-    // const tables: Array<TableList> =
-    //   await prisma.$queryRaw`SELECT TABLE_NAME from information_schema.TABLES WHERE TABLE_SCHEMA = 'template';`
-
-    // for (const { TABLE_NAME } of tables) {
-    //   if (TABLE_NAME !== '_prisma_migrations') {
-    //     try {
-    //       await prisma.$executeRawUnsafe(`TRUNCATE ${TABLE_NAME};`)
-    //     } catch (error) {
-    //       console.log({ error })
-    //     }
-    //   }
-    // }
-
-    // await prisma.$executeRaw`SET FOREIGN_KEY_CHECKS = 1;`
-
     const posts = await prisma.post.deleteMany()
     const users = await prisma.user.deleteMany()
 
