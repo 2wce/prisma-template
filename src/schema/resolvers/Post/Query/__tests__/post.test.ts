@@ -17,10 +17,10 @@ beforeAll(async () => {
   }
 
   //create posts dummy data
-  const posts = postFactory.build({ id: 30 })
+  const posts = postFactory.build()
 
   // create user dummy data
-  const users = userFactory.build({ id: 30 })
+  const users = userFactory.build()
 
   const res = await prisma.$transaction([
     prisma.post.createMany({
@@ -42,17 +42,21 @@ afterAll(async () => {
 })
 
 test('should return existing post if id is valid', async () => {
-  const id = 30
-  const args = { id }
+  const dbPost = await prisma.post.findFirst()
 
-  const result = await post({}, args, context)
+  if (dbPost) {
+    const id = dbPost.id
+    const args = { id }
 
-  expect(result).toBeTruthy()
-  expect(result?.id).toBe(id)
+    const result = await post({}, args, context)
+
+    expect(result).toBeTruthy()
+    expect(result?.id).toBe(id)
+  }
 })
 
 test('should return error if post does not exist', async () => {
-  const id = 3000
+  const id = '3000'
   const args = { id }
 
   const result = await post({}, args, context)

@@ -14,14 +14,13 @@ beforeEach(async () => {
 
   context = {
     prisma,
-    //userId: 1,
   }
 
   //create posts dummy data
-  const posts = postFactory.build({ id: 3 })
+  const posts = postFactory.build()
 
   // create user dummy data
-  const users = userFactory.build({ id: 3, email: 'user3@email.com' })
+  const users = userFactory.build({ email: 'user3@email.com' })
 
   const res = await prisma.$transaction([
     prisma.post.createMany({
@@ -43,19 +42,23 @@ afterEach(async () => {
 })
 
 test('should publish existing post if id is valid', async () => {
-  const id = 3
-  const args = { id }
+  const post = await prisma.post.findFirst()
 
-  const result = await publish({}, args, context)
+  if (post) {
+    const id = post.id
+    const args = { id }
 
-  expect(result).toBeTruthy()
-  expect(result.id).toBe(id)
+    const result = await publish({}, args, context)
 
-  // confirm post is updated in db
-  const updated = await prisma.post.findFirst({
-    where: { id },
-  })
+    expect(result).toBeTruthy()
+    expect(result.id).toBe(id)
 
-  expect(updated?.published).toBeTruthy()
-  expect(updated?.id).toBe(id)
+    // confirm post is updated in db
+    const updated = await prisma.post.findFirst({
+      where: { id },
+    })
+
+    expect(updated?.published).toBeTruthy()
+    expect(updated?.id).toBe(id)
+  }
 })

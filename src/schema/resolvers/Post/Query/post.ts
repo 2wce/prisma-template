@@ -6,7 +6,12 @@ export default (
   { id }: QueryPostArgs,
   { prisma }: Context,
 ) => {
-  return prisma.post.findUnique({
-    where: { id },
-  })
+  try {
+    return prisma.post.findUnique({
+      where: { id },
+    })
+  } catch (error) {
+    console.log(error)
+    return error
+  }
 }

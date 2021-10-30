@@ -14,14 +14,13 @@ beforeEach(async () => {
 
   context = {
     prisma,
-    //userId: 1,
   }
 
   //create posts dummy data
-  const posts = postFactory.build({ id: 2 })
+  const posts = postFactory.build()
 
   // create user dummy data
-  const users = userFactory.build({ id: 2, email: 'user2@email.com' })
+  const users = userFactory.build({ email: 'user2@email.com' })
 
   const res = await prisma.$transaction([
     prisma.post.createMany({
@@ -43,18 +42,23 @@ afterEach(async () => {
 })
 
 test('should delete existing post if id is valid', async () => {
-  const id = 2
-  const args = { id }
+  const post = await prisma.post.findFirst()
 
-  const result = await deletePost({}, args, context)
+  if (post) {
+    const id = post.id
 
-  expect(result).toBeTruthy()
-  expect(result.id).toBe(id)
+    const args = { id }
 
-  // confirm post is deleted in db
-  const deletedItem = await prisma.post.findFirst({
-    where: { id },
-  })
+    const result = await deletePost({}, args, context)
 
-  expect(deletedItem).toBeFalsy()
+    expect(result).toBeTruthy()
+    expect(result.id).toBe(id)
+
+    // confirm post is deleted in db
+    const deletedItem = await prisma.post.findFirst({
+      where: { id },
+    })
+
+    expect(deletedItem).toBeFalsy()
+  }
 })
