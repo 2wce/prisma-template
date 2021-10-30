@@ -1,9 +1,8 @@
 # [1.30.0](https://github.com/2wce/prisma-template/compare/v1.29.0...v1.30.0) (2021-10-30)
 
-
 ### Features
 
-* add sonar cloud ([d38f6bf](https://github.com/2wce/prisma-template/commit/d38f6bf265d6c346f696046c3ced44cf7809d0be))
+- add sonar cloud ([d38f6bf](https://github.com/2wce/prisma-template/commit/d38f6bf265d6c346f696046c3ced44cf7809d0be))
 
 # [1.29.0](https://github.com/2wce/prisma-template/compare/v1.28.0...v1.29.0) (2021-10-30)
 
