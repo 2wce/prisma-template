@@ -1,13 +1,14 @@
-import { QueryFilterPostsArgs } from '../../../../generated'
+import { QueryPostsArgs } from '../../../../generated'
 import { Context } from '../../../../utils'
 
-export default (_parent: unknown, args: QueryFilterPostsArgs, ctx: Context) => {
+export default (_parent: unknown, args: QueryPostsArgs, ctx: Context) => {
   const where = args.searchTerm
     ? {
         OR: [
           { title: { contains: args.searchTerm } },
           { content: { contains: args.searchTerm } },
         ],
+        published: true,
       }
     : {}
 

@@ -1,7 +1,6 @@
 import { Context, createMockContext, MockContext } from '../../../../../utils'
-import feed from '../feed'
-import filterPosts from '../filterPosts'
 import post from '../post'
+import posts from '../posts'
 
 let mockCtx: MockContext
 let context: Context
@@ -17,18 +16,18 @@ describe('Successful post queries', () => {
     const args = { searchTerm: 'Subscribe to' }
 
     // test
-    const posts = await filterPosts({}, args, context)
+    const filteredPosts = await posts({}, args, context)
 
     // assert
-    expect(posts).toMatchSnapshot()
+    expect(filteredPosts).toMatchSnapshot()
   })
 
   it('can get feed with published posts', async () => {
     // test
-    const posts = await feed({}, {}, context)
+    const publishedPosts = await posts({}, {}, context)
 
     // assert
-    expect(posts).toMatchSnapshot()
+    expect(publishedPosts).toMatchSnapshot()
   })
 
   it('can get post with valid id', async () => {
