@@ -1,9 +1,8 @@
 # [1.29.0](https://github.com/2wce/prisma-template/compare/v1.28.0...v1.29.0) (2021-10-30)
 
-
 ### Features
 
-* update id in model ([be59b2a](https://github.com/2wce/prisma-template/commit/be59b2a3ed88c233c269463d7e7a08fdd331c3a8))
+- update id in model ([be59b2a](https://github.com/2wce/prisma-template/commit/be59b2a3ed88c233c269463d7e7a08fdd331c3a8))
 
 # [1.28.0](https://github.com/2wce/prisma-template/compare/v1.27.0...v1.28.0) (2021-10-30)
 
