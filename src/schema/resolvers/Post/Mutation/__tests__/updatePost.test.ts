@@ -1,25 +1,21 @@
 import { clearData, Context, prisma, userFactory } from '../../../../../utils'
-import updatePost from '../updatePost'
 import createDraft from '../createDraft'
+import updatePost from '../updatePost'
 
 let context: Context
 
 beforeAll(async () => {
   await clearData()
 
+  // create user dummy data
+  const data = userFactory.build({ email: 'user2@email.com' })
+
+  const user = await prisma.user.create({ data })
+
   context = {
     prisma,
-    userId: 2,
+    userId: user.id,
   }
-
-  // create user dummy data
-  const users = userFactory.build({ id: 2, email: 'user2@email.com' })
-
-  const res = await prisma.$transaction([
-    prisma.user.createMany({ data: users }),
-  ])
-  console.assert(res.length === 1)
-  // console.assert(res.every((item) => item.count === 1))
 })
 
 afterAll(async () => {

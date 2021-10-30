@@ -12,7 +12,7 @@ export default gql`
   }
 
   input UpdatePostInput {
-    id: Int!
+    id: ID!
     content: String
     title: String
   }
@@ -50,7 +50,7 @@ export default gql`
   type Query {
     me: User
     posts(searchTerm: String): [Post!]!
-    post(id: Int!): Post
+    post(id: ID!): Post
   }
 
   type Mutation {
@@ -62,7 +62,7 @@ export default gql`
 
     createDraft(input: CreateDraftInput!): Post!
     updatePost(input: UpdatePostInput!): Post!
-    deletePost(id: Int!): Post
-    publish(id: Int!): Post
+    deletePost(id: ID!): Post
+    publish(id: ID!): Post
   }
 `

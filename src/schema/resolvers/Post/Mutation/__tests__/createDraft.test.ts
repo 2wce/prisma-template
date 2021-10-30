@@ -6,22 +6,17 @@ let context: Context
 beforeEach(async () => {
   await clearData()
 
+  // create user dummy data
+  const data = userFactory.build({ email: 'user1@email.com' })
+
+  const user = await prisma.user.create({
+    data,
+  })
+
   context = {
     prisma,
-    userId: 1,
+    userId: user.id,
   }
-
-  // create user dummy data
-  const users = userFactory.build({ id: 1, email: 'user1@email.com' })
-
-  const res = await prisma.$transaction([
-    prisma.user.createMany({
-      data: users,
-    }),
-  ])
-
-  console.assert(res.length === 1)
-  console.assert(res.every((item) => item.count === 1))
 })
 
 afterEach(async () => {
