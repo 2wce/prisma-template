@@ -1,9 +1,8 @@
 # [1.28.0](https://github.com/2wce/prisma-template/compare/v1.27.0...v1.28.0) (2021-10-30)
 
-
 ### Features
 
-* setup posts query ([2a30bff](https://github.com/2wce/prisma-template/commit/2a30bff599b84f6441decfb20b4d4631a78c494c))
+- setup posts query ([2a30bff](https://github.com/2wce/prisma-template/commit/2a30bff599b84f6441decfb20b4d4631a78c494c))
 
 # [1.27.0](https://github.com/2wce/prisma-template/compare/v1.26.0...v1.27.0) (2021-10-21)
 
