@@ -1,13 +1,12 @@
 # [1.32.0](https://github.com/2wce/prisma-template/compare/v1.31.0...v1.32.0) (2021-10-30)
 
-
 ### Features
 
 - rename argument ([63733bd](https://github.com/2wce/prisma-template/commit/63733bd58ef1ddc62d31ba719f128580a0db661b))
 
 =======
-# [1.31.0](https://github.com/2wce/prisma-template/compare/v1.30.0...v1.31.0) (2021-10-30)
 
+# [1.31.0](https://github.com/2wce/prisma-template/compare/v1.30.0...v1.31.0) (2021-10-30)
 
 ### Features
 
