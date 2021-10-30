@@ -49,8 +49,7 @@ export default gql`
 
   type Query {
     me: User
-    feed: [Post!]!
-    filterPosts(searchTerm: String): [Post!]!
+    posts(searchTerm: String): [Post!]!
     post(id: Int!): Post
   }
 
