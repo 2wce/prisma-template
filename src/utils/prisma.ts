@@ -13,7 +13,7 @@ export interface ContextEvent {
 export interface Context {
   prisma: PrismaClient
   request?: ContextEvent
-  userId?: number
+  userId?: string
 }
 
 export type MockContext = {

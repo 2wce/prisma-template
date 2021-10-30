@@ -8,7 +8,7 @@ interface Token {
 }
 
 type User = {
-  id: number
+  id: string
 }
 
 // get user id from auth token

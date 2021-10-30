@@ -10,11 +10,11 @@
   },
   "license": "MIT",
   "scripts": {
-    "prestart": "graphql-codegen && npm run generate && npm run reset",
+    "prestart": "npm run generate && npm run reset",
     "start": "ts-node-dev --respawn --transpile-only src",
     "reset": "npx prisma migrate reset -f",
     "seed": "ts-node prisma/seed.ts",
-    "generate": "prisma generate",
+    "generate": "prisma generate && graphql-codegen",
     "studio": "prisma studio",
     "migrate": "prisma migrate dev",
     "postmigrate": "yarn generate",
