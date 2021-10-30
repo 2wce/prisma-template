@@ -59,6 +59,6 @@ export const hashPassword = (password: string): Promise<string | null> => {
   })
 }
 
-export const validatePassword = (password: string, hash: string) => {
-  return compare(password, hash)
+export const validatePassword = (password: string, hashedPass: string) => {
+  return compare(password, hashedPass)
 }
