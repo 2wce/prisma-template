@@ -1,3 +1,10 @@
+# [1.35.0](https://github.com/2wce/prisma-template/compare/v1.34.0...v1.35.0) (2021-10-31)
+
+
+### Features
+
+* add auth rules ([91fe6c5](https://github.com/2wce/prisma-template/commit/91fe6c5e930956a3614f8b66f2525f5cddaf6bc9))
+
 # [1.34.0](https://github.com/2wce/prisma-template/compare/v1.33.0...v1.34.0) (2021-10-31)
 
 ### Features
