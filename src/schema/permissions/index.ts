@@ -6,8 +6,7 @@ const { isAuthenticatedUser, isPostOwner, isUnauthenticatedUser } = rules
 export const permissions = shield({
   Query: {
     me: isAuthenticatedUser,
-    filterPosts: isUnauthenticatedUser,
-    feed: isUnauthenticatedUser,
+    posts: isUnauthenticatedUser,
     post: isAuthenticatedUser,
   },
   Mutation: {
