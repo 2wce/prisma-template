@@ -1,3 +1,10 @@
+# [1.36.0](https://github.com/2wce/prisma-template/compare/v1.35.0...v1.36.0) (2021-10-31)
+
+
+### Features
+
+* update permission import ([5bcbf6c](https://github.com/2wce/prisma-template/commit/5bcbf6c23d342fe6f522531dc665a04a79be056b))
+
 # [1.35.0](https://github.com/2wce/prisma-template/compare/v1.34.0...v1.35.0) (2021-10-31)
 
 
