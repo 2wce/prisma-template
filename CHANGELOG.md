@@ -1,3 +1,10 @@
+# [1.34.0](https://github.com/2wce/prisma-template/compare/v1.33.0...v1.34.0) (2021-10-31)
+
+
+### Features
+
+* add unauth rule ([912d856](https://github.com/2wce/prisma-template/commit/912d856717a8ade14ea5a6376b7db62493d114cc))
+
 # [1.33.0](https://github.com/2wce/prisma-template/compare/v1.32.0...v1.33.0) (2021-10-31)
 
 ### Features
