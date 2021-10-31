@@ -3,7 +3,7 @@ import rules from './rules'
 
 const { isAuthenticatedUser, isPostOwner, isUnauthenticatedUser } = rules
 
-export const permissions = shield({
+export default shield({
   Query: {
     me: isAuthenticatedUser,
     posts: isUnauthenticatedUser,
