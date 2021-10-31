@@ -1,16 +1,18 @@
-import { allow, shield } from 'graphql-shield'
+import { shield } from 'graphql-shield'
 import rules from './rules'
+
+const { isAuthenticatedUser, isPostOwner, isUnauthenticatedUser } = rules
 
 export const permissions = shield({
   Query: {
-    me: rules.isAuthenticatedUser,
-    posts: allow,
-    post: rules.isAuthenticatedUser,
+    me: isAuthenticatedUser,
+    posts: isUnauthenticatedUser,
+    post: isAuthenticatedUser,
   },
   Mutation: {
-    createDraft: rules.isAuthenticatedUser,
-    deletePost: rules.isPostOwner,
-    publish: rules.isPostOwner,
-    updatePost: rules.isPostOwner,
+    createDraft: isAuthenticatedUser,
+    deletePost: isPostOwner,
+    publish: isPostOwner,
+    updatePost: isPostOwner,
   },
 })

@@ -1,9 +1,15 @@
-# [1.33.0](https://github.com/2wce/prisma-template/compare/v1.32.0...v1.33.0) (2021-10-31)
+# [1.34.0](https://github.com/2wce/prisma-template/compare/v1.33.0...v1.34.0) (2021-10-31)
 
 
 ### Features
 
-* refactor schema rules ([e082fcd](https://github.com/2wce/prisma-template/commit/e082fcdded0dc8394b85a163de6482f0294cb142))
+* add unauth rule ([912d856](https://github.com/2wce/prisma-template/commit/912d856717a8ade14ea5a6376b7db62493d114cc))
+
+# [1.33.0](https://github.com/2wce/prisma-template/compare/v1.32.0...v1.33.0) (2021-10-31)
+
+### Features
+
+- refactor schema rules ([e082fcd](https://github.com/2wce/prisma-template/commit/e082fcdded0dc8394b85a163de6482f0294cb142))
 
 # [1.32.0](https://github.com/2wce/prisma-template/compare/v1.31.0...v1.32.0) (2021-10-30)
 

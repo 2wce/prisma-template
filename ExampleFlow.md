@@ -5,7 +5,7 @@ In order for the API to identify the user you are logging in as, you must provid
 ##### Login as an existing user
 
 ```graphql
-query {
+mutation {
   login(email: "example@user.com")
 }
 ```
