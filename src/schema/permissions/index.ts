@@ -10,6 +10,11 @@ export const permissions = shield({
     post: isAuthenticatedUser,
   },
   Mutation: {
+    signup: isUnauthenticatedUser,
+    login: isUnauthenticatedUser,
+    resetPassword: isUnauthenticatedUser,
+    forgotPassword: isUnauthenticatedUser,
+
     createDraft: isAuthenticatedUser,
     deletePost: isPostOwner,
     publish: isPostOwner,
