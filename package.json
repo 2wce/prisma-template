@@ -27,7 +27,7 @@
   "dependencies": {
     "@graphql-tools/schema": "^8.2.0",
     "@prisma/client": "3.3.0",
-    "apollo-server": "2.25.2",
+    "apollo-server": "2.25.3",
     "bcryptjs": "2.4.3",
     "factory.ts": "^0.5.2",
     "faker": "^5.5.3",
