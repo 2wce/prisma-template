@@ -1,3 +1,10 @@
+# [1.37.0](https://github.com/2wce/prisma-template/compare/v1.36.0...v1.37.0) (2021-11-23)
+
+
+### Features
+
+* update prisma ([9880545](https://github.com/2wce/prisma-template/commit/988054594cef8ea8d767ef7db7b8c16b5d1d977b))
+
 # [1.36.0](https://github.com/2wce/prisma-template/compare/v1.35.0...v1.36.0) (2021-10-31)
 
 ### Features
