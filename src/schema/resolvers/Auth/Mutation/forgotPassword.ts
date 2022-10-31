@@ -6,8 +6,8 @@ import {
   emailRegExp,
   formatError,
   generateRandomOtp,
-  passwordReset,
   sendEmail,
+  template as passwordReset,
 } from '../../../../utils';
 
 export default async (
