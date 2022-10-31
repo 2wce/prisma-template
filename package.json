@@ -22,7 +22,8 @@
     "test": "jest",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint --fix --ext .ts ."
   },
   "dependencies": {
     "@graphql-tools/schema": "^8.2.0",
@@ -36,6 +37,7 @@
     "graphql-scalars": "1.10.1",
     "graphql-shield": "^7.5.0",
     "graphql-tools": "^8.1.0",
+    "jest-mock-extended": "^2.0.4",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "nodemailer": "^6.7.0"
@@ -56,10 +58,15 @@
     "@types/lodash": "4.14.175",
     "@types/node": "14.17.27",
     "@types/ws": "8.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
     "ansi-regex": "6.0.1",
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-plugin-import": "^2.25.3",
     "husky": "^7.0.4",
     "jest": "^27.2.5",
-    "jest-mock-extended": "^2.0.4",
     "prettier": "2.4.1",
     "prisma": "^3.5.0",
     "semantic-release": "^18.0.0",

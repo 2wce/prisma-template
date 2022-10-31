@@ -1,7 +1,7 @@
-import { shield } from 'graphql-shield'
-import rules from './rules'
+import { shield } from 'graphql-shield';
+import rules from './rules';
 
-const { isAuthenticatedUser, isPostOwner, isUnauthenticatedUser } = rules
+const { isAuthenticatedUser, isPostOwner, isUnauthenticatedUser } = rules;
 
 export default shield({
   Query: {
@@ -20,4 +20,4 @@ export default shield({
     publish: isPostOwner,
     updatePost: isPostOwner,
   },
-})
+});

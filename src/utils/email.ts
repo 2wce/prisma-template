@@ -1,5 +1,5 @@
-import { createTransport } from 'nodemailer'
-import { formatError } from './helper'
+import { createTransport } from 'nodemailer';
+import { formatError } from './helper';
 
 export const sendEmail = async (
   recipientEmail: string,
@@ -16,7 +16,7 @@ export const sendEmail = async (
         user: process.env.SMTP_USERNAME, // generated ethereal user
         pass: process.env.SMTP_PASSWORD, // generated ethereal password
       },
-    })
+    });
 
     // send mail with defined transport object
     const info = await transporter.sendMail({
@@ -24,13 +24,13 @@ export const sendEmail = async (
       to: recipientEmail, // list of receivers
       subject, // Subject line
       html, // html body
-    })
+    });
 
-    console.log('Message sent:', info)
+    console.log('Message sent:', info);
 
-    return info
+    return info;
   } catch (error) {
-    formatError('sendEmail', error)
-    return error
+    formatError('sendEmail', error);
+    return error;
   }
-}
+};
