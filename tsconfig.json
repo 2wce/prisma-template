@@ -14,7 +14,7 @@
     "sourceMap": true,
     "target": "ES2019",
     "baseUrl": ".",
-    "types": ["jest"]
+    "types": ["jest", "node"]
   },
   "exclude": ["node_modules/**/*", ".vscode/**/*"]
 }
