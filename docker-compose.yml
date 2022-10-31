@@ -4,7 +4,7 @@ version: '3.9'
 # The containers that compose the project
 services:
   db:
-    image: mysql:5.7
+    image: mariadb:latest
     restart: always
     container_name: prisma-template
     ports:

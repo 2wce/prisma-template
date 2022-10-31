@@ -1,6 +1,6 @@
-import { ApolloError } from 'apollo-server'
-import { MutationUpdatePostArgs } from '../../../../generated'
-import { Context, formatError } from '../../../../utils'
+import { ApolloError } from 'apollo-server';
+import { MutationUpdatePostArgs } from '../../../../generated';
+import { Context, formatError } from '../../../../utils';
 
 export default async (
   _parent: unknown,
@@ -8,10 +8,10 @@ export default async (
   { prisma, userId }: Context,
 ) => {
   try {
-    const { title, content, id } = input
+    const { title, content, id } = input;
 
     if (!id || !userId) {
-      throw new ApolloError('Invalid input')
+      throw new ApolloError('Invalid input');
     }
 
     // check if post linked to this user exists
@@ -19,21 +19,21 @@ export default async (
       where: {
         AND: [{ id }, { author: { id: userId } }],
       },
-    })
+    });
 
     if (!postExists) {
-      throw new ApolloError('Cannot update post')
+      throw new ApolloError('Cannot update post');
     }
 
-    return prisma.post.update({
+    return await prisma.post.update({
       where: { id },
       data: {
         ...(title && { title }),
         ...(content && { content }),
       },
-    })
+    });
   } catch (error) {
-    formatError('updatePost', error)
-    return error
+    formatError('updatePost', error);
+    return error;
   }
-}
+};

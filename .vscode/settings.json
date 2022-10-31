@@ -11,7 +11,7 @@
     "editor.defaultFormatter": "michelemelluso.code-beautifier"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
+    "source.fixAll.eslint": true,
     "source.organizeImports": true
   },
   "yaml.customTags": [

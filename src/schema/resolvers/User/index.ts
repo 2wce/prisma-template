@@ -1,6 +1,6 @@
-import { User } from '@prisma/client'
-import { Context } from '../../../utils'
-import Query from './Query'
+import { User } from '@prisma/client';
+import { Context } from '../../../utils';
+import Query from './Query';
 
 export default {
   Query,
@@ -10,7 +10,7 @@ export default {
         .findUnique({
           where: { id: parent.id },
         })
-        .posts()
+        .posts();
     },
   },
-}
+};

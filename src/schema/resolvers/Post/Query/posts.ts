@@ -1,5 +1,5 @@
-import { QueryPostsArgs } from '../../../../generated'
-import { Context } from '../../../../utils'
+import { QueryPostsArgs } from '../../../../generated';
+import { Context } from '../../../../utils';
 
 export default (_parent: unknown, args: QueryPostsArgs, ctx: Context) => {
   const where = args.searchTerm
@@ -10,9 +10,9 @@ export default (_parent: unknown, args: QueryPostsArgs, ctx: Context) => {
         ],
         published: true,
       }
-    : { published: true }
+    : { published: true };
 
   return ctx.prisma.post.findMany({
     where,
-  })
-}
+  });
+};

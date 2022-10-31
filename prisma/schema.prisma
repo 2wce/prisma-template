@@ -35,4 +35,5 @@ model User {
   password         String?
   posts            Post[]
   images           Image[]
+  //images           Image[] @relation(fields: [imageId], references: [id])
 }

@@ -1,5 +1,5 @@
-import { MutationPublishArgs } from '../../../../generated'
-import { Context } from '../../../../utils'
+import { MutationPublishArgs } from '../../../../generated';
+import { Context } from '../../../../utils';
 
 export default (
   _parent: unknown,
@@ -9,5 +9,5 @@ export default (
   return ctx.prisma.post.update({
     where: { id },
     data: { published: true },
-  })
-}
+  });
+};

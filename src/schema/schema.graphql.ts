@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server'
+import { gql } from 'apollo-server';
 
 export default gql`
   input CreateDraftInput {
@@ -65,4 +65,4 @@ export default gql`
     deletePost(id: ID!): Post
     publish(id: ID!): Post
   }
-`
+`;

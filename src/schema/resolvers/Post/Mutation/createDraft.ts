@@ -1,12 +1,12 @@
-import { MutationCreateDraftArgs } from '../../../../generated'
-import { Context } from '../../../../utils'
+import { MutationCreateDraftArgs } from '../../../../generated';
+import { Context } from '../../../../utils';
 
 export default (
   _parent: unknown,
   { input }: MutationCreateDraftArgs,
   { prisma, userId }: Context,
 ) => {
-  const { title, content } = input
+  const { title, content } = input;
 
   return prisma.post.create({
     data: {
@@ -17,5 +17,5 @@ export default (
         connect: { id: userId },
       },
     },
-  })
-}
+  });
+};

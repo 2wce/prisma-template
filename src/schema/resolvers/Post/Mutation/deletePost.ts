@@ -1,5 +1,5 @@
-import { MutationDeletePostArgs } from '../../../../generated'
-import { Context } from '../../../../utils'
+import { MutationDeletePostArgs } from '../../../../generated';
+import { Context } from '../../../../utils';
 
 export default (
   _parent: unknown,
@@ -8,5 +8,5 @@ export default (
 ) => {
   return prisma.post.delete({
     where: { id },
-  })
-}
+  });
+};

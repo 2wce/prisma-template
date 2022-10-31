@@ -1,5 +1,5 @@
-import { QueryPostArgs } from '../../../../generated'
-import { Context } from '../../../../utils'
+import { QueryPostArgs } from '../../../../generated';
+import { Context } from '../../../../utils';
 
 export default (
   _parent: unknown,
@@ -9,9 +9,9 @@ export default (
   try {
     return prisma.post.findUnique({
       where: { id },
-    })
+    });
   } catch (error) {
-    console.log(error)
-    return error
+    console.log(error);
+    return error;
   }
-}
+};

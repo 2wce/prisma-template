@@ -1,7 +1,7 @@
-import { Post } from '@prisma/client'
-import { Context } from '../../../utils'
-import Mutation from './Mutation'
-import Query from './Query'
+import { Post } from '@prisma/client';
+import { Context } from '../../../utils';
+import Mutation from './Mutation';
+import Query from './Query';
 
 export default {
   Query,
@@ -12,7 +12,7 @@ export default {
         .findUnique({
           where: { id: parent.id },
         })
-        .author()
+        .author();
     },
   },
-}
+};
