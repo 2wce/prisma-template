@@ -2,9 +2,13 @@ module.exports = {
   env: {
     browser: false,
     es2021: true,
-    "cypress/globals": true
+    'cypress/globals': true,
   },
-  extends: ['airbnb-base', 'airbnb-typescript/base', 'plugin:cypress/recommended'],
+  extends: [
+    'airbnb-base',
+    'airbnb-typescript/base',
+    'plugin:cypress/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 13,
@@ -16,11 +20,11 @@ module.exports = {
     'no-console': 'off',
     'max-len': ['error', { code: 120 }],
     'arrow-body-style': ['error', 'always'],
-    "cypress/no-assigning-return-values": "error",
-    "cypress/no-unnecessary-waiting": "error",
-    "cypress/assertion-before-screenshot": "warn",
-    "cypress/no-force": "warn",
-    "cypress/no-async-tests": "error",
-    "cypress/no-pause": "error"
+    'cypress/no-assigning-return-values': 'error',
+    'cypress/no-unnecessary-waiting': 'error',
+    'cypress/assertion-before-screenshot': 'warn',
+    'cypress/no-force': 'warn',
+    'cypress/no-async-tests': 'error',
+    'cypress/no-pause': 'error',
   },
 };

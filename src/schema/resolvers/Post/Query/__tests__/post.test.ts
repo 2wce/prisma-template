@@ -32,7 +32,11 @@ beforeAll(async () => {
   ]);
 
   console.assert(res.length === 2);
-  console.assert(res.every((item) => { return item.count === 1; }));
+  console.assert(
+    res.every((item) => {
+      return item.count === 1;
+    }),
+  );
 });
 
 afterAll(async () => {

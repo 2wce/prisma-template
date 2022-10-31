@@ -1,6 +1,4 @@
-import {
-  clearData, Context, prisma, userFactory,
-} from '../../../../../utils';
+import { clearData, Context, prisma, userFactory } from '../../../../../utils';
 import createDraft from '../createDraft';
 
 let context: Context;

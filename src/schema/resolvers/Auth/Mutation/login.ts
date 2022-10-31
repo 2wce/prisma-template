@@ -1,8 +1,6 @@
 import { AuthenticationError } from 'apollo-server';
 import { MutationLoginArgs } from '../../../../generated';
-import {
-  Context, emailRegExp, formatError, issue,
-} from '../../../../utils';
+import { Context, emailRegExp, formatError, issue } from '../../../../utils';
 
 export default async (
   _parent: unknown,

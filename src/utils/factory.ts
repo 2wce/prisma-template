@@ -5,22 +5,34 @@ import { commerce, internet, name } from 'faker';
 const prisma = new PrismaClient();
 
 export interface TableList {
-  TABLE_NAME: string
+  TABLE_NAME: string;
 }
 
 export const userFactory = Factory.Sync.makeFactory<Prisma.UserCreateManyInput>(
   {
-    name: Factory.Sync.each(() => { return name.firstName(); }),
-    surname: Factory.Sync.each(() => { return name.lastName(); }),
-    email: Factory.Sync.each((seq) => { return `seq_${seq}_${internet.email()}`; }),
-    password: Factory.Sync.each(() => { return internet.password(); }),
+    name: Factory.Sync.each(() => {
+      return name.firstName();
+    }),
+    surname: Factory.Sync.each(() => {
+      return name.lastName();
+    }),
+    email: Factory.Sync.each((seq) => {
+      return `seq_${seq}_${internet.email()}`;
+    }),
+    password: Factory.Sync.each(() => {
+      return internet.password();
+    }),
   },
 );
 
 export const postFactory = Factory.Sync.makeFactory<Prisma.PostCreateManyInput>(
   {
-    title: Factory.Sync.each(() => { return commerce.productName(); }),
-    content: Factory.Sync.each(() => { return commerce.productDescription(); }),
+    title: Factory.Sync.each(() => {
+      return commerce.productName();
+    }),
+    content: Factory.Sync.each(() => {
+      return commerce.productDescription();
+    }),
     published: true,
   },
 );

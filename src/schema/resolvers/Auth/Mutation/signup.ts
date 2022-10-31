@@ -27,7 +27,9 @@ export default async (
       });
 
       if (user) {
-        throw new AuthenticationError('User exists, please use different email');
+        throw new AuthenticationError(
+          'User exists, please use different email',
+        );
       }
 
       return await prisma.user.create({
