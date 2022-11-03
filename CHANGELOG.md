@@ -7,10 +7,9 @@
 
 # [1.38.0](https://github.com/2wce/prisma-template/compare/v1.37.0...v1.38.0) (2022-10-31)
 
-
 ### Features
 
-* initial eslint setup ([b8dc654](https://github.com/2wce/prisma-template/commit/b8dc6545a2f59d7d32b078b4dd0188f085e7a905))
+- initial eslint setup ([b8dc654](https://github.com/2wce/prisma-template/commit/b8dc6545a2f59d7d32b078b4dd0188f085e7a905))
 
 # [1.37.0](https://github.com/2wce/prisma-template/compare/v1.36.0...v1.37.0) (2021-11-23)
 
