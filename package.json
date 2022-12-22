@@ -38,7 +38,7 @@
     "graphql-shield": "^7.5.0",
     "graphql-tools": "^8.1.0",
     "jest-mock-extended": "^2.0.4",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
     "nodemailer": "^6.7.0"
   },
