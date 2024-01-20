@@ -1,4 +1,10 @@
-import { Context, clearData, prisma, userFactory } from "../../../../../utils";
+import type { Post } from "@prisma/client";
+import {
+	clearData,
+	prisma,
+	userFactory,
+	type Context,
+} from "../../../../../utils";
 import createDraft from "../createDraft";
 import updatePost from "../updatePost";
 
@@ -33,7 +39,7 @@ test("should update existing post if id is valid", async () => {
 	const args = {
 		input: { id: draftResult.id, title: "Hello", content: "howdy" },
 	};
-	const result = await updatePost({}, args, context);
+	const result = (await updatePost({}, args, context)) as Post;
 
 	expect(result).toBeTruthy();
 

@@ -33,7 +33,7 @@
       "@/resolvers": ["src/schema/resolvers/*"],
       "@/utils": ["src/utils/*"]
     },
-    "types": ["jest", "bun"]
+    "types": ["bun"]
   },
   "exclude": ["node_modules/**/*", ".vscode/**/*"]
 }

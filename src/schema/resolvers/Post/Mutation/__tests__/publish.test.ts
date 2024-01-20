@@ -1,9 +1,9 @@
 import {
-	Context,
 	clearData,
 	postFactory,
 	prisma,
 	userFactory,
+	type Context,
 } from "../../../../../utils";
 import publish from "../publish";
 
@@ -23,10 +23,10 @@ beforeEach(async () => {
 	const users = userFactory.build({ email: "user3@email.com" });
 
 	const res = await prisma.$transaction([
-		prisma.post.createMany({
+		prisma.post.create({
 			data: posts,
 		}),
-		prisma.user.createMany({
+		prisma.user.create({
 			data: users,
 		}),
 	]);
@@ -34,7 +34,7 @@ beforeEach(async () => {
 	console.assert(res.length === 2);
 	console.assert(
 		res.every((item) => {
-			return item.count === 1;
+			return item;
 		}),
 	);
 });

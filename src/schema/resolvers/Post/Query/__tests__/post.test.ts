@@ -1,9 +1,10 @@
+import type { Post } from "@prisma/client";
 import {
-	Context,
 	clearData,
 	postFactory,
 	prisma,
 	userFactory,
+	type Context,
 } from "../../../../../utils";
 import post from "../post";
 
@@ -23,10 +24,10 @@ beforeAll(async () => {
 	const users = userFactory.build();
 
 	const res = await prisma.$transaction([
-		prisma.post.createMany({
+		prisma.post.create({
 			data: posts,
 		}),
-		prisma.user.createMany({
+		prisma.user.create({
 			data: users,
 		}),
 	]);
@@ -34,7 +35,7 @@ beforeAll(async () => {
 	console.assert(res.length === 2);
 	console.assert(
 		res.every((item) => {
-			return item.count === 1;
+			return item;
 		}),
 	);
 });
@@ -52,7 +53,7 @@ test("should return existing post if id is valid", async () => {
 		const { id } = dbPost;
 		const args = { id };
 
-		const result = await post({}, args, context);
+		const result = (await post({}, args, context)) as Post;
 
 		expect(result).toBeTruthy();
 		expect(result?.id).toBe(id);

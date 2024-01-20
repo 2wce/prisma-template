@@ -1,5 +1,5 @@
-import http from "http";
 import { PrismaClient } from "@prisma/client";
+import http from "http";
 import type { MockProxy } from "jest-mock-extended";
 import { mockDeep } from "jest-mock-extended";
 import { getUserId } from "./jwt";
@@ -19,8 +19,8 @@ export interface ContextArgs {
 }
 export interface Context {
 	prisma: PrismaClient;
-	req: http.IncomingMessage;
-	res: http.ServerResponse;
+	req?: http.IncomingMessage;
+	res?: http.ServerResponse;
 	userId?: string;
 }
 
