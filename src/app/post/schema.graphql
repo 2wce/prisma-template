@@ -1,0 +1,30 @@
+input CreateDraftInput {
+  content: String
+  title: String!
+}
+
+input UpdatePostInput {
+  id: ID!
+  content: String
+  title: String
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String
+  published: Boolean!
+  author: User
+}
+
+type Query {
+  posts(searchTerm: String): [Post!]!
+  post(id: ID!): Post
+}
+
+type Mutation {
+  createDraft(input: CreateDraftInput!): Post!
+  updatePost(input: UpdatePostInput!): Post!
+  deletePost(id: ID!): Post
+  publish(id: ID!): Post
+}

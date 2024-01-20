@@ -1,20 +1,21 @@
-import { Prisma, PrismaClient } from '@prisma/client';
-import * as Factory from 'factory.ts';
-import { commerce, internet, name } from 'faker';
+import { faker } from "@faker-js/faker";
+import { Prisma, PrismaClient } from "@prisma/client";
+import * as Factory from "factory.ts";
 
+const { commerce, internet, person } = faker;
 const prisma = new PrismaClient();
 
 export interface TableList {
   TABLE_NAME: string;
 }
 
-export const userFactory = Factory.Sync.makeFactory<Prisma.UserCreateManyInput>(
-  {
+export const userFactory =
+  Factory.Sync.makeFactory<Prisma.UserUncheckedCreateInput>({
     name: Factory.Sync.each(() => {
-      return name.firstName();
+      return person.firstName();
     }),
     surname: Factory.Sync.each(() => {
-      return name.lastName();
+      return person.lastName();
     }),
     email: Factory.Sync.each((seq) => {
       return `seq_${seq}_${internet.email()}`;
@@ -22,11 +23,10 @@ export const userFactory = Factory.Sync.makeFactory<Prisma.UserCreateManyInput>(
     password: Factory.Sync.each(() => {
       return internet.password();
     }),
-  },
-);
+  });
 
-export const postFactory = Factory.Sync.makeFactory<Prisma.PostCreateManyInput>(
-  {
+export const postFactory =
+  Factory.Sync.makeFactory<Prisma.PostUncheckedCreateInput>({
     title: Factory.Sync.each(() => {
       return commerce.productName();
     }),
@@ -34,8 +34,7 @@ export const postFactory = Factory.Sync.makeFactory<Prisma.PostCreateManyInput>(
       return commerce.productDescription();
     }),
     published: true,
-  },
-);
+  });
 
 export const clearData = async () => {
   try {

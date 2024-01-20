@@ -1,6 +1,6 @@
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "biomejs.biome",
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
@@ -11,8 +11,8 @@
     "editor.defaultFormatter": "michelemelluso.code-beautifier"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
+    "quickfix.biome": true,
+    "source.organizeImports": "explicit"
   },
   "yaml.customTags": [
     "!And",

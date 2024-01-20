@@ -1,8 +1,9 @@
-import { PrismaClient } from '@prisma/client';
-import { mockDeep, MockProxy } from 'jest-mock-extended';
-import { getUserId } from './jwt';
-
-export const prisma = new PrismaClient();
+import prisma from "@/config/database";
+import { getUserId } from "@/utils/jwt";
+import type { PrismaClient } from "@prisma/client";
+import http from "http";
+import type { MockProxy } from "jest-mock-extended";
+import { mockDeep } from "jest-mock-extended";
 
 export interface ContextEvent {
   headers: {
@@ -10,9 +11,15 @@ export interface ContextEvent {
     Authorization: string;
   };
 }
+
+export interface ContextArgs {
+  req: http.IncomingMessage;
+  res: http.ServerResponse;
+}
 export interface Context {
   prisma: PrismaClient;
-  request?: ContextEvent;
+  req: http.IncomingMessage;
+  res: http.ServerResponse;
   userId?: string;
 }
 
@@ -27,11 +34,11 @@ export const createMockContext = (): MockContext => {
 };
 
 // add prisma to context for resolvers
-export function createContext(request: Context) {
-  const userId = getUserId(request);
+export function createContext({ req, res }: ContextArgs) {
   return {
-    ...request,
-    userId,
+    req,
+    res,
+    userId: getUserId(req),
     prisma,
   };
 }

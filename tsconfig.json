@@ -1,20 +1,35 @@
 {
   "include": ["src/**/**/*"],
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "strictNullChecks": true,
-    "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
-    "lib": ["ES2019"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "outDir": "dist",
-    "sourceMap": true,
-    "target": "ES2019",
+    // enable latest features
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "jsx": "react-jsx", // support JSX
+    "allowJs": true, // allow importing `.js` from `.ts`
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Some stricter flags
+    "useUnknownInCatchVariables": true,
+    "noPropertyAccessFromIndexSignature": true,
     "baseUrl": ".",
-    "types": ["jest", "node"]
+    "paths": {
+      "@/*": ["src/*"],
+    },
+    "types": ["bun"]
   },
   "exclude": ["node_modules/**/*", ".vscode/**/*"]
 }
