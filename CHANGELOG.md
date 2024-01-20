@@ -1,3 +1,18 @@
+# [1.40.0-beta.1](https://github.com/2wce/prisma-template/compare/v1.39.0...v1.40.0-beta.1) (2024-01-20)
+
+
+### Bug Fixes
+
+* replace faker lib ([af26328](https://github.com/2wce/prisma-template/commit/af26328a0c198695646502196be7d8ea9502d490))
+* solve linting issues ([81d0cd5](https://github.com/2wce/prisma-template/commit/81d0cd517e1a87f859469061f72d0e804c441d73))
+
+
+### Features
+
+* refactor folder layout ([53e9c4e](https://github.com/2wce/prisma-template/commit/53e9c4e2aaa8b991adadee2c9c55f0b32c8f2eba))
+* setup aliases ([15505f7](https://github.com/2wce/prisma-template/commit/15505f7897e145cb453dbac171791408fdcc3a12))
+* setup bun & biome ([3cb50e1](https://github.com/2wce/prisma-template/commit/3cb50e1a0725f056a182cab941f9d284c5f95f9d))
+
 # [1.39.0](https://github.com/2wce/prisma-template/compare/v1.38.0...v1.39.0) (2022-10-31)
 
 ### Features
