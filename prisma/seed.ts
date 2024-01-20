@@ -1,5 +1,5 @@
-import { PrismaClient } from '@prisma/client';
-import { postFactory, userFactory } from './utils';
+import { PrismaClient } from "@prisma/client";
+import { postFactory, userFactory } from "./utils";
 
 const prisma = new PrismaClient();
 
@@ -19,7 +19,7 @@ async function main() {
     }),
   ]);
 
-  console.log('seed data created', { res });
+  console.log("seed data created", { res });
 }
 
 main()

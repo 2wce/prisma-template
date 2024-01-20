@@ -1,11 +1,11 @@
-import { Context, getUserId } from '../../../../utils';
+import { Context, getUserId } from "../../../../utils";
 
 export default (_parent: unknown, _args: unknown, ctx: Context) => {
-  const userId = getUserId(ctx);
+	const userId = getUserId(ctx);
 
-  return ctx.prisma.user.findUnique({
-    where: {
-      id: Number(userId),
-    },
-  });
+	return ctx.prisma.user.findUnique({
+		where: {
+			id: Number(userId),
+		},
+	});
 };

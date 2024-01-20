@@ -1,7 +1,7 @@
-import post from './post';
-import posts from './posts';
+import post from "./post";
+import posts from "./posts";
 
 export default {
-  posts,
-  post,
+	posts,
+	post,
 };

@@ -19,11 +19,11 @@
     "migrate": "prisma migrate dev",
     "postmigrate": "yarn generate",
     "pretest": "graphql-codegen",
-    "test": "jest",
+    "test": "bun test",
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "prepare": "husky install",
-    "lint": "eslint --fix --ext .ts ."
+    "lint": "bunx @biomejs/biome check --apply ./src"
   },
   "dependencies": {
     "@graphql-tools/schema": "^8.2.0",
@@ -43,6 +43,7 @@
     "nodemailer": "^6.7.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.5.2",
     "@graphql-codegen/cli": "^2.2.0",
     "@graphql-codegen/typescript": "2.2.4",
     "@graphql-codegen/typescript-resolvers": "2.3.2",
@@ -53,10 +54,10 @@
     "@semantic-release/npm": "^8.0.0",
     "@semantic-release/release-notes-generator": "^10.0.2",
     "@types/bcryptjs": "2.4.2",
+    "@types/bun": "^1.0.2",
     "@types/faker": "^5.5.8",
     "@types/jest": "27.0.2",
     "@types/lodash": "4.14.175",
-    "@types/node": "14.17.27",
     "@types/ws": "8.2.0",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
@@ -75,7 +76,7 @@
     "ts-jest": "^27.0.6",
     "ts-node": "10.3.0",
     "ts-node-dev": "1.1.8",
-    "typescript": "4.4.4"
+    "typescript": "5.3.3"
   },
   "engines": {
     "node": ">=14.17"

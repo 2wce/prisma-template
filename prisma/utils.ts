@@ -1,6 +1,6 @@
-import { Prisma, PrismaClient, PrismaPromise } from '@prisma/client';
-import * as Factory from 'factory.ts';
-import { commerce, internet, name } from 'faker';
+import { Prisma, PrismaClient, PrismaPromise } from "@prisma/client";
+import * as Factory from "factory.ts";
+import { commerce, internet, name } from "faker";
 
 const prisma = new PrismaClient();
 
@@ -14,7 +14,7 @@ export const userFactory = Factory.Sync.makeFactory<Prisma.UserCreateManyInput>(
     surname: Factory.Sync.each(() => name.lastName()),
     email: Factory.Sync.each(() => internet.email()),
     password: Factory.Sync.each(() => internet.password()),
-  },
+  }
 );
 
 export const postFactory = Factory.Sync.makeFactory<Prisma.PostCreateManyInput>(
@@ -22,7 +22,7 @@ export const postFactory = Factory.Sync.makeFactory<Prisma.PostCreateManyInput>(
     title: Factory.Sync.each(() => commerce.productName()),
     content: Factory.Sync.each(() => commerce.productDescription()),
     published: true,
-  },
+  }
 );
 
 export const clearData = async () => {
@@ -34,10 +34,10 @@ export const clearData = async () => {
       await prisma.$queryRaw`SELECT TABLE_NAME from information_schema.TABLES WHERE TABLE_SCHEMA = 'template';`;
 
     for (const { TABLE_NAME } of tables) {
-      if (TABLE_NAME !== '_prisma_migrations') {
+      if (TABLE_NAME !== "_prisma_migrations") {
         try {
           transactions.push(
-            prisma.$executeRawUnsafe(`TRUNCATE ${TABLE_NAME};`),
+            prisma.$executeRawUnsafe(`TRUNCATE ${TABLE_NAME};`)
           );
         } catch (error) {
           console.log({ error });
@@ -52,7 +52,7 @@ export const clearData = async () => {
         } catch (error) {
           console.log({ error });
         }
-      }),
+      })
     );
 
     await prisma.$executeRaw`SET FOREIGN_KEY_CHECKS = 1;`;
