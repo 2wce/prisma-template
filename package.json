@@ -28,8 +28,6 @@
 		"@graphql-tools/schema": "^8.2.0",
 		"@prisma/client": "^5.8.1",
 		"bcryptjs": "2.4.3",
-		"factory.ts": "^0.5.2",
-		"faker": "^5.5.3",
 		"graphql": "^16.8.1",
 		"graphql-middleware": "^6.1.8",
 		"graphql-scalars": "1.10.1",
@@ -42,6 +40,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.5.2",
+		"@faker-js/faker": "8.3.1",
 		"@graphql-codegen/cli": "5.0.0",
 		"@graphql-codegen/typescript": "4.0.1",
 		"@graphql-codegen/typescript-resolvers": "4.0.1",
@@ -53,10 +52,10 @@
 		"@semantic-release/release-notes-generator": "12.1.0",
 		"@types/bcryptjs": "2.4.2",
 		"@types/bun": "1.0.2",
-		"@types/faker": "^5.5.8",
 		"@types/lodash": "4.14.202",
 		"@types/nodemailer": "6.4.14",
 		"@types/ws": "8.5.10",
+		"factory.ts": "^0.5.2",
 		"prisma": "5.8.1",
 		"semantic-release": "23.0.0",
 		"typescript": "5.3.3"

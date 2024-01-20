@@ -1,7 +1,8 @@
+import { faker } from "@faker-js/faker";
 import { Prisma, PrismaClient } from "@prisma/client";
 import * as Factory from "factory.ts";
-import { commerce, internet, name } from "faker";
 
+const { commerce, internet, person } = faker;
 const prisma = new PrismaClient();
 
 export interface TableList {
@@ -10,10 +11,10 @@ export interface TableList {
 
 export const userFactory = Factory.Sync.makeFactory<Prisma.UserCreateInput>({
 	name: Factory.Sync.each(() => {
-		return name.firstName();
+		return person.firstName();
 	}),
 	surname: Factory.Sync.each(() => {
-		return name.lastName();
+		return person.lastName();
 	}),
 	email: Factory.Sync.each((seq) => {
 		return `seq_${seq}_${internet.email()}`;
