@@ -17,7 +17,7 @@
 		"generate": "bun run src/utils/generateSchema.ts && prisma generate && graphql-codegen",
 		"studio": "prisma studio",
 		"migrate": "prisma migrate dev",
-		"postmigrate": "yarn generate",
+		"postmigrate": "bun generate",
 		"pretest": "graphql-codegen",
 		"test": "bun test",
 		"lint": "bunx @biomejs/biome check --apply ./src",
