@@ -1,15 +1,13 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { schema } from "./schema";
-import { type Context, getUserId, prisma } from "./utils";
+import prisma from "./config/database";
+import { getResolvers, getSchema, getUserId, type Context } from "./utils";
 
 const server = new ApolloServer<Context>({
-	...schema,
-	// only enable debug in development
-	//debug: process.env.NODE_ENV === "development",
+	typeDefs: await getSchema(),
+	resolvers: await getResolvers(),
 	// only enable introspection for development
 	introspection: process.env.NODE_ENV === "development",
-	//context: createContext,
 });
 
 // Passing an ApolloServer instance to the `startStandaloneServer` function:

@@ -1,3 +1,4 @@
+import { mailers } from "@/config/mail";
 import { createTransport } from "nodemailer";
 import { formatError } from "./helper";
 
@@ -8,15 +9,7 @@ export const sendEmail = async (
 ) => {
 	try {
 		// create reusable transporter object using the default SMTP transport
-		const transporter = createTransport({
-			host: process.env.SMTP_HOST,
-			port: process.env.SMTP_PORT,
-			secure: true, // true for 465, false for other ports
-			auth: {
-				user: process.env.SMTP_USERNAME, // generated ethereal user
-				pass: process.env.SMTP_PASSWORD, // generated ethereal password
-			},
-		});
+		const transporter = createTransport(mailers.smtp);
 
 		// send mail with defined transport object
 		const info = await transporter.sendMail({

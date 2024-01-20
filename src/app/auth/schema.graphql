@@ -1,0 +1,35 @@
+input SignupInput {
+  email: String!
+  name: String
+}
+
+input ResetPasswordInput {
+  password: String!
+  passwordConfirmation: String!
+  code: Int!
+}
+
+input ForgotPasswordInput {
+  email: String
+}
+
+type AuthPayload {
+  jwt: String
+  user: User
+}
+
+type User {
+  id: ID!
+  email: String!
+  name: String
+  posts: [Post!]!
+}
+
+
+type Mutation {
+  #auth
+  signup(input: SignupInput!): User!
+  login(email: String!): String
+  resetPassword(input: ResetPasswordInput!): AuthPayload
+  forgotPassword(input: ForgotPasswordInput!): Boolean
+}

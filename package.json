@@ -14,7 +14,7 @@
 		"start": "bun run src/index.ts",
 		"reset": "prisma migrate reset -f",
 		"seed": "ts-node prisma/seed.ts",
-		"generate": "prisma generate && graphql-codegen",
+		"generate": "bun run src/utils/generateSchema.ts && prisma generate && graphql-codegen",
 		"studio": "prisma studio",
 		"migrate": "prisma migrate dev",
 		"postmigrate": "yarn generate",
@@ -44,7 +44,9 @@
 		"@semantic-release/npm": "11.0.2",
 		"@semantic-release/release-notes-generator": "12.1.0",
 		"@types/bun": "1.0.2",
+		"@types/jsonwebtoken": "^9.0.5",
 		"@types/lodash": "4.14.202",
+		"@types/node": "^20.11.5",
 		"@types/nodemailer": "6.4.14",
 		"@types/ws": "8.5.10",
 		"factory.ts": "1.4.1",
@@ -57,6 +59,7 @@
 		"node": ">=20"
 	},
 	"prisma": {
-		"seed": "bun prisma/seed.ts"
+		"seed": "bun src/database/seed.ts",
+		"schema": "src/database/schema.prisma"
 	}
 }
