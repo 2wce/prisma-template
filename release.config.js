@@ -13,7 +13,7 @@ module.exports = {
   ],
   branches: [
     { name: "main", prerelease: false },
-    { name: "beta", channel: "beta", prerelease: true }
+    { name: "beta", channel: "beta", prerelease: true },
   ],
   preset: "angular",
 };
