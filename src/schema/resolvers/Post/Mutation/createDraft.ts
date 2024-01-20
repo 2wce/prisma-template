@@ -1,15 +1,15 @@
 /*
- * Import the 'MutationCreateDraftArgs' type from the '../../../../generated' directory.
+ * Import the 'MutationCreateDraftArgs' type.
  * This type represents the arguments for the 'createDraft' mutation in your GraphQL schema.
  */
-import type { MutationCreateDraftArgs } from "../../../../generated";
+import type { MutationCreateDraftArgs } from "@/generated";
 
 /*
- * Import the 'Context' type from the '../../../../utils' directory.
+ * Import the 'Context' type.
  * This type represents the context of a GraphQL resolver function, which includes any data that every resolver
  * function should have access to, like the current user or database access.
  */
-import type { Context } from "../../../../utils";
+import type { Context } from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for creating a draft post.

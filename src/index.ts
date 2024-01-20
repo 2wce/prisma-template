@@ -1,7 +1,7 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./schema";
-import { type Context, getUserId, prisma } from "./utils";
+import { getUserId, prisma, type Context } from "./utils";
 
 const server = new ApolloServer<Context>({
 	...schema,

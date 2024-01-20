@@ -11,24 +11,24 @@ import { AuthenticationError } from "apollo-server";
 import { template } from "lodash";
 
 /*
- * Import the 'MutationForgotPasswordArgs' type from the '../../../../generated' directory.
+ * Import the 'MutationForgotPasswordArgs' type.
  * This type represents the arguments for the 'forgotPassword' mutation in your GraphQL schema.
  */
-import type { MutationForgotPasswordArgs } from "../../../../generated";
+import type { MutationForgotPasswordArgs } from "@/generated";
 
 /*
- * Import various utility functions and types from the '../../../../utils' directory.
+ * Import various utility functions and types.
  * These include a regular expression for validating email addresses, a function for formatting errors, a function for generating random OTPs,
  * a template for the password reset email, a function for sending emails, and the 'Context' type.
  */
 import {
-	type Context,
 	emailRegExp,
 	formatError,
 	generateRandomOtp,
-	sendEmail,
 	template as passwordReset,
-} from "../../../../utils";
+	sendEmail,
+	type Context,
+} from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for the 'forgotPassword' mutation.

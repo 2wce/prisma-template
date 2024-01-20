@@ -28,10 +28,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@/schema": ["src/schema/*"],
-      "@/permissions": ["src/schema/permissions/*"],
-      "@/resolvers": ["src/schema/resolvers/*"],
-      "@/utils": ["src/utils/*"]
     },
     "types": ["bun"]
   },

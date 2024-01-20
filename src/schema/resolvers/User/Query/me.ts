@@ -3,13 +3,13 @@
  * This type represents the context of a GraphQL resolver function, which includes any data that every resolver
  * function should have access to, like the current user or database access.
  */
-import type { Context } from "../../../../utils";
+import type { Context } from "@/utils";
 
 /*
  * Import the 'getUserId' function.
  * This function is used to get the ID of the current user from the request object.
  */
-import { getUserId } from "../../../../utils";
+import { getUserId } from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for getting the current user.

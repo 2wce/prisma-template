@@ -9,7 +9,7 @@ import type { Post } from "@prisma/client";
  * This type represents the context of a GraphQL resolver function, which includes any data that every resolver
  * function should have access to, like the current user or database access.
  */
-import type { Context } from "../../../utils";
+import type { Context } from "@/utils";
 
 /*
  * Import the 'Mutation' and 'Query' objects.

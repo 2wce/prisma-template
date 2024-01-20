@@ -1,11 +1,11 @@
-import type { Post } from "@prisma/client";
 import {
-	type Context,
 	clearData,
 	postFactory,
 	prisma,
 	userFactory,
-} from "../../../../../utils";
+	type Context,
+} from "@/utils";
+import type { Post } from "@prisma/client";
 import post from "../post";
 
 let context: Context;

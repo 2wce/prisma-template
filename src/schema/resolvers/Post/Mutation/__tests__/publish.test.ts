@@ -1,10 +1,10 @@
 import {
-	type Context,
 	clearData,
 	postFactory,
 	prisma,
 	userFactory,
-} from "../../../../../utils";
+	type Context,
+} from "@/utils";
 import publish from "../publish";
 
 let context: Context;

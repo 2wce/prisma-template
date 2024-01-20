@@ -1,18 +1,18 @@
 /*
- * Import the 'User' type from the '@prisma/client' package.
+ * Import the 'User' type.
  * This type represents a user in your application.
  */
 import type { User } from "@prisma/client";
 
 /*
- * Import the 'Context' type from the local file '../../../utils'.
+ * Import the 'Context' type.
  * This type represents the context of a GraphQL resolver function, which includes any data that every resolver
  * function should have access to, like the current user or database access.
  */
-import type { Context } from "../../../utils";
+import type { Context } from "@/utils";
 
 /*
- * Import the 'Query' object from the local file './Query'.
+ * Import the 'Query' object.
  * This object includes resolver functions for the queries defined in your GraphQL schema.
  */
 import Query from "./Query";

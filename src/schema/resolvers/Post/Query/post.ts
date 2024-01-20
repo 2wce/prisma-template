@@ -2,14 +2,14 @@
  * Import the 'QueryPostArgs' type.
  * This type represents the arguments for the 'post' query in your GraphQL schema.
  */
-import type { QueryPostArgs } from "../../../../generated";
+import type { QueryPostArgs } from "@/generated";
 
 /*
  * Import the 'Context' type.
  * This type represents the context of a GraphQL resolver function, which includes any data that every resolver
  * function should have access to, like the current user or database access.
  */
-import type { Context } from "../../../../utils";
+import type { Context } from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for getting a post by its ID.

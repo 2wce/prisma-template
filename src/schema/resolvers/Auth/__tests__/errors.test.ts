@@ -3,12 +3,8 @@ import { beforeEach, describe, expect, it } from "bun:test";
 import type {
 	MutationForgotPasswordArgs,
 	MutationResetPasswordArgs,
-} from "../../../../generated";
-import {
-	type Context,
-	type MockContext,
-	createMockContext,
-} from "../../../../utils";
+} from "@/generated";
+import { createMockContext, type Context, type MockContext } from "@/utils";
 import resolvers from "../index";
 
 let mockCtx: MockContext;

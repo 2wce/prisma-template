@@ -8,7 +8,7 @@ import { ApolloError, AuthenticationError } from "apollo-server";
  * Import the 'MutationResetPasswordArgs' type.
  * This type represents the arguments for the 'resetPassword' mutation in your GraphQL schema.
  */
-import type { MutationResetPasswordArgs } from "../../../../generated";
+import type { MutationResetPasswordArgs } from "@/generated";
 
 /*
  * Import various utility functions and types.
@@ -16,12 +16,12 @@ import type { MutationResetPasswordArgs } from "../../../../generated";
  * and the 'Context' type.
  */
 import {
-	type Context,
 	formatError,
 	hasValidResetPasswordInput,
 	hashPassword,
 	issue,
-} from "../../../../utils";
+	type Context,
+} from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for the 'resetPassword' mutation.

@@ -5,16 +5,16 @@
 import { AuthenticationError } from "apollo-server";
 
 /*
- * Import the 'MutationSignupArgs' type from the '../../../../generated' directory.
+ * Import the 'MutationSignupArgs' type.
  * This type represents the arguments for the 'signup' mutation in your GraphQL schema.
  */
-import type { MutationSignupArgs } from "../../../../generated";
+import type { MutationSignupArgs } from "@/generated";
 
 /*
- * Import various utility functions and types from the '../../../../utils' directory.
+ * Import various utility functions and types.
  * These include a regular expression for validating email addresses, a function for formatting errors, and the 'Context' type.
  */
-import { type Context, emailRegExp, formatError } from "../../../../utils";
+import { emailRegExp, formatError, type Context } from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for the 'signup' mutation.

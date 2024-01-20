@@ -10,7 +10,7 @@ jobs:
   sonarcloud:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           # Disabling shallow clone is recommended for improving relevancy of reporting
           fetch-depth: 0
@@ -26,27 +26,19 @@ jobs:
     strategy:
       matrix:
         # Run the steps below with the following versions of Node.js
-        node-version: [14.x]
+        node-version: [20.x]
 
     env:
-      DATABASE_URL: "mysql://root:root@localhost:3306/test"
+      DATABASE_URL: "file:./dev.db"
 
     steps:
-      # Start pre-installed Ubuntu mysql service
-      - name: Start MySQL
-        run: sudo /etc/init.d/mysql start
-
-      # Create test DB for e2e tests
-      - name: Create test DB
-        run: mysql -e 'CREATE DATABASE test;' --user=root --password=root
-
       # Fetch the latest commit
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Setup Node.js using the appropriate version
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -72,12 +64,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 14.x
+          node-version: 20.x
 
       - name: Install
         run: npm ci
