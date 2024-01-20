@@ -16,11 +16,10 @@ import type { MutationResetPasswordArgs } from "@/generated";
  * and the 'Context' type.
  */
 import {
-	type Context,
 	formatError,
 	hasValidResetPasswordInput,
-	hashPassword,
 	issue,
+	type Context,
 } from "@/utils";
 
 /*
@@ -56,7 +55,7 @@ export default async (
 			/*
 			 * If the user exists, hash the new password.
 			 */
-			const password = await hashPassword(params.password);
+			const password = await Bun.password.hash(params.password);
 
 			/*
 			 * If the password was hashed successfully, update the user in the database using the 'prisma' client.

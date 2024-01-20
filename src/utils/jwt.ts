@@ -1,5 +1,4 @@
 import http from "http";
-import { compare, hash } from "bcryptjs";
 import { sign, verify } from "jsonwebtoken";
 import { clone } from "lodash";
 
@@ -30,31 +29,4 @@ export function getUserId(request: http.IncomingMessage): string | undefined {
 // issue new token based on payload
 export const issue = (payload: string | User | Buffer, jwtOptions = {}) => {
 	return sign(clone(payload), process.env.JWT_SECRET, jwtOptions);
-};
-
-export const isHashed = (password: string): boolean => {
-	if (typeof password !== "string" || !password) {
-		return false;
-	}
-
-	return password.split("$").length === 4;
-};
-
-export const hashPassword = (password: string): Promise<string | null> => {
-	return new Promise((resolve, reject) => {
-		if (!password || isHashed(password)) {
-			resolve(null);
-		} else {
-			hash(password, process.env.SALT, (err, data) => {
-				if (err) {
-					return reject(err);
-				}
-				return resolve(data);
-			});
-		}
-	});
-};
-
-export const validatePassword = (password: string, hashedPass: string) => {
-	return compare(password, hashedPass);
 };

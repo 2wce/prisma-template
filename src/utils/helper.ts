@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-import type { ResetPasswordInput } from "../generated";
+import type { ResetPasswordInput } from "@/generated";
 
 export const formatError = (nameOfFunction: string, error: Error) => {
 	return process.env.NODE_ENV === "test"
