@@ -22,12 +22,12 @@ import type { MutationForgotPasswordArgs } from "@/generated";
  * a template for the password reset email, a function for sending emails, and the 'Context' type.
  */
 import {
+	type Context,
 	emailRegExp,
 	formatError,
 	generateRandomOtp,
-	template as passwordReset,
 	sendEmail,
-	type Context,
+	template as passwordReset,
 } from "@/utils";
 
 /*

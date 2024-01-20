@@ -1,4 +1,4 @@
-import { clearData, prisma, userFactory, type Context } from "@/utils";
+import { type Context, clearData, prisma, userFactory } from "@/utils";
 import createDraft from "../createDraft";
 
 let context: Context;

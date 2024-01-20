@@ -14,7 +14,7 @@ import type { MutationSignupArgs } from "@/generated";
  * Import various utility functions and types.
  * These include a regular expression for validating email addresses, a function for formatting errors, and the 'Context' type.
  */
-import { emailRegExp, formatError, type Context } from "@/utils";
+import { type Context, emailRegExp, formatError } from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for the 'signup' mutation.

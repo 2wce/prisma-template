@@ -15,7 +15,7 @@ import type { MutationLoginArgs } from "@/generated";
  * These include a regular expression for validating email addresses, a function for formatting errors, a function for issuing JWTs,
  * and the 'Context' type.
  */
-import { emailRegExp, formatError, issue, type Context } from "@/utils";
+import { type Context, emailRegExp, formatError, issue } from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for the 'login' mutation.

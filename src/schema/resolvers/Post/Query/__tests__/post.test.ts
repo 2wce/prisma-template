@@ -1,9 +1,9 @@
 import {
+	type Context,
 	clearData,
 	postFactory,
 	prisma,
 	userFactory,
-	type Context,
 } from "@/utils";
 import type { Post } from "@prisma/client";
 import post from "../post";

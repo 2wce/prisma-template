@@ -16,7 +16,7 @@ import type { MutationUpdatePostArgs } from "@/generated";
  * The 'Context' type represents the context of a GraphQL resolver function, which includes any data that every resolver
  * function should have access to, like the current user or database access.
  */
-import { formatError, type Context } from "@/utils";
+import { type Context, formatError } from "@/utils";
 
 /*
  * Export a default function that is a GraphQL resolver for updating a post by its ID.
