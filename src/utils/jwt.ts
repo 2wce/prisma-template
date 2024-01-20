@@ -1,8 +1,7 @@
+import http from "http";
 import { compare, hash } from "bcryptjs";
 import { sign, verify } from "jsonwebtoken";
 import { clone } from "lodash";
-// eslint-disable-next-line import/no-cycle
-import type { Context } from "./prisma";
 
 interface Token {
 	id: string;
@@ -13,10 +12,9 @@ type User = {
 };
 
 // get user id from auth token
-export function getUserId({ request }: Context): string | undefined {
+export function getUserId(request: http.IncomingMessage): string | undefined {
 	if (request?.headers) {
-		const Authorization =
-			request.headers.authorization || request.headers.Authorization;
+		const Authorization = request.headers.authorization;
 
 		if (Authorization) {
 			const token = Authorization.replace("Bearer ", "");

@@ -1,17 +1,31 @@
-import { ApolloServer } from "apollo-server";
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
 import { schema } from "./schema";
-import { createContext } from "./utils";
+import { type Context, getUserId, prisma } from "./utils";
 
-const server = new ApolloServer({
-	schema,
+const server = new ApolloServer<Context>({
+	...schema,
 	// only enable debug in development
-	debug: process.env.NODE_ENV === "development",
+	//debug: process.env.NODE_ENV === "development",
 	// only enable introspection for development
 	introspection: process.env.NODE_ENV === "development",
-	context: createContext,
+	//context: createContext,
 });
 
-// The `listen` method launches a web server.
-server.listen().then(({ url }) => {
-	console.log(`🚀  Server ready at ${url}`);
+// Passing an ApolloServer instance to the `startStandaloneServer` function:
+//  1. creates an Express app
+//  2. installs your ApolloServer instance as middleware
+//  3. prepares your app to handle incoming requests
+const { url } = await startStandaloneServer(server, {
+	listen: { port: 4000 },
+	context: async ({ req, res }) => {
+		return {
+			req,
+			res,
+			userId: getUserId(req),
+			prisma,
+		};
+	},
 });
+
+console.log(`🚀  Server ready at: ${url}`);

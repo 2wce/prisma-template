@@ -1,6 +1,6 @@
 import { rule } from "graphql-shield";
-import { Context, getUserId } from "../../utils";
-
+import { getUserId } from "../../utils";
+import type { Context } from "../../utils/prisma";
 export default {
 	isAuthenticatedUser: rule()(
 		(_parent: unknown, _args: unknown, context: Context) => {

@@ -1,7 +1,34 @@
+/*
+ * Import the 'AuthenticationError' class from the 'apollo-server' package.
+ * This class can be used to create authentication-related errors that are sent to the client in the response to a GraphQL request.
+ */
 import { AuthenticationError } from "apollo-server";
-import { MutationLoginArgs } from "../../../../generated";
-import { Context, emailRegExp, formatError, issue } from "../../../../utils";
 
+/*
+ * Import the 'MutationLoginArgs' type from the '../../../../generated' directory.
+ * This type represents the arguments for the 'login' mutation in your GraphQL schema.
+ */
+import type { MutationLoginArgs } from "../../../../generated";
+
+/*
+ * Import various utility functions and types from the '../../../../utils' directory.
+ * These include a regular expression for validating email addresses, a function for formatting errors, a function for issuing JWTs,
+ * and the 'Context' type.
+ */
+import {
+	emailRegExp,
+	formatError,
+	issue,
+	type Context,
+} from "../../../../utils";
+
+/*
+ * Export a default function that is a GraphQL resolver for the 'login' mutation.
+ * This function takes three arguments: '_parent', 'args', and '{ prisma }'.
+ * '_parent' is the parent object, which is not used in this function, so it's named '_parent'.
+ * 'args' includes the email of the user who wants to log in.
+ * '{ prisma }' is the 'prisma' client from the context of the resolver function.
+ */
 export default async (
 	_parent: unknown,
 	args: MutationLoginArgs,
@@ -36,7 +63,7 @@ export default async (
 		}
 		throw new AuthenticationError("Invalid Email Format");
 	} catch (error) {
-		formatError("login", error);
+		formatError("login", error as Error);
 		return error;
 	}
 };

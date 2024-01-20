@@ -30,7 +30,7 @@ export const sendEmail = async (
 
 		return info;
 	} catch (error) {
-		formatError("sendEmail", error);
+		formatError("sendEmail", error as Error);
 		return error;
 	}
 };

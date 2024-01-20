@@ -5,13 +5,13 @@
   },
   "author": {
     "name": "Kudakwashe Terrence Mupeni",
-    "url": "http://2wce.github.io",
+    "url": "https://kudamupeni.vercel.app",
     "email": "kudamupeni@icloud.com"
   },
   "license": "MIT",
   "scripts": {
     "prestart": "npm run generate && npm run reset",
-    "start": "ts-node-dev --respawn --transpile-only src",
+    "start": "bun run src/index.ts",
     "reset": "npx prisma migrate reset -f",
     "seed": "ts-node prisma/seed.ts",
     "generate": "prisma generate && graphql-codegen",
@@ -23,16 +23,17 @@
     "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "prepare": "husky install",
-    "lint": "bunx @biomejs/biome check --apply ./src"
+    "lint": "bunx @biomejs/biome check --apply ./src",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "@apollo/server": "^4.10.0",
     "@graphql-tools/schema": "^8.2.0",
-    "@prisma/client": "^4.5.0",
-    "apollo-server": "2.25.4",
+    "@prisma/client": "^5.8.1",
     "bcryptjs": "2.4.3",
     "factory.ts": "^0.5.2",
     "faker": "^5.5.3",
-    "graphql": "15.6.1",
+    "graphql": "^16.8.1",
     "graphql-middleware": "^6.1.8",
     "graphql-scalars": "1.10.1",
     "graphql-shield": "^7.5.0",
@@ -44,9 +45,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.2",
-    "@graphql-codegen/cli": "^2.2.0",
-    "@graphql-codegen/typescript": "2.2.4",
-    "@graphql-codegen/typescript-resolvers": "2.3.2",
+    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/typescript": "4.0.1",
+    "@graphql-codegen/typescript-resolvers": "4.0.1",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/commit-analyzer": "^9.0.1",
     "@semantic-release/git": "^10.0.0",
@@ -56,38 +57,19 @@
     "@types/bcryptjs": "2.4.2",
     "@types/bun": "^1.0.2",
     "@types/faker": "^5.5.8",
-    "@types/jest": "27.0.2",
     "@types/lodash": "4.14.175",
+    "@types/nodemailer": "^6.4.14",
     "@types/ws": "8.2.0",
-    "@typescript-eslint/eslint-plugin": "^5.6.0",
-    "@typescript-eslint/parser": "^5.6.0",
-    "ansi-regex": "6.0.1",
-    "eslint": "^8.4.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^16.1.0",
-    "eslint-plugin-import": "^2.25.3",
     "husky": "^7.0.4",
-    "jest": "^27.2.5",
     "prettier": "2.4.1",
-    "prisma": "^4.5.0",
+    "prisma": "^5.8.1",
     "semantic-release": "^18.0.0",
-    "string-width": "5.0.1",
-    "strip-ansi": "6.0.1",
-    "ts-jest": "^27.0.6",
-    "ts-node": "10.3.0",
-    "ts-node-dev": "1.1.8",
     "typescript": "5.3.3"
   },
   "engines": {
-    "node": ">=14.17"
+    "node": ">=20"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
-  },
-  "resolutions": {
-    "ansi-regex": "6.0.1",
-    "strip-ansi": "6.0.1",
-    "string-width": "5.0.1",
-    "ws": "7.4.6"
+    "seed": "bun prisma/seed.ts"
   }
 }

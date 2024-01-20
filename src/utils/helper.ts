@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { ResetPasswordInput } from "../generated";
+import type { ResetPasswordInput } from "../generated";
 
 export const formatError = (nameOfFunction: string, error: Error) => {
 	return process.env.NODE_ENV === "test"
@@ -9,7 +9,7 @@ export const formatError = (nameOfFunction: string, error: Error) => {
 
 // RegExp to check if email is valid
 export const emailRegExp =
-	/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|([a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+))$/;
 
 export const generateRandomOtp = (noOfDigits: number): number => {
 	const multiplier = 10 ** (noOfDigits - 1);

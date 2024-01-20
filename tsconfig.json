@@ -25,12 +25,13 @@
     // Some stricter flags
     "useUnknownInCatchVariables": true,
     "noPropertyAccessFromIndexSignature": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@schema": ["schema/*"],
-      "@permissions": ["schema/permissions/*"],
-      "@resolvers": ["schema/resolvers/*"],
-      "@utils": ["utils/*"]
+      "@/*": ["src/*"],
+      "@/schema": ["src/schema/*"],
+      "@/permissions": ["src/schema/permissions/*"],
+      "@/resolvers": ["src/schema/resolvers/*"],
+      "@/utils": ["src/utils/*"]
     },
     "types": ["jest", "bun"]
   },
