@@ -4,7 +4,7 @@ name: Test and release
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, beta]
 
 jobs:
   sonarcloud:
