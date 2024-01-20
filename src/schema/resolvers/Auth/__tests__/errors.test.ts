@@ -5,9 +5,9 @@ import type {
 	MutationResetPasswordArgs,
 } from "../../../../generated";
 import {
-	createMockContext,
 	type Context,
 	type MockContext,
+	createMockContext,
 } from "../../../../utils";
 import resolvers from "../index";
 
