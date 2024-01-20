@@ -16,10 +16,10 @@ import type { MutationLoginArgs } from "../../../../generated";
  * and the 'Context' type.
  */
 import {
+	type Context,
 	emailRegExp,
 	formatError,
 	issue,
-	type Context,
 } from "../../../../utils";
 
 /*

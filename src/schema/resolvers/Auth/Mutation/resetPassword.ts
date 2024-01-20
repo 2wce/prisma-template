@@ -16,11 +16,11 @@ import type { MutationResetPasswordArgs } from "../../../../generated";
  * and the 'Context' type.
  */
 import {
+	type Context,
 	formatError,
 	hasValidResetPasswordInput,
 	hashPassword,
 	issue,
-	type Context,
 } from "../../../../utils";
 
 /*

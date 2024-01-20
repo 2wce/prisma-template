@@ -16,7 +16,7 @@ import resolvers from "./resolvers";
  * The 'encoding' option is set to 'utf-8' to specify the encoding of the file.
  */
 const typeDefs = readFileSync(`${__dirname}/schema.graphql`, {
-  encoding: "utf-8",
+	encoding: "utf-8",
 });
 
 /*
@@ -25,6 +25,6 @@ const typeDefs = readFileSync(`${__dirname}/schema.graphql`, {
  * The 'resolvers' define how to fetch or modify this data.
  */
 export const schema = {
-  typeDefs,
-  resolvers,
+	typeDefs,
+	resolvers,
 };
