@@ -45,8 +45,6 @@ type User {
   posts: [Post!]!
 }
 
-
-
 input CreateDraftInput {
   content: String
   title: String!

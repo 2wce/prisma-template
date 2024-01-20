@@ -4,10 +4,10 @@ import prisma from "./config/database";
 import { getResolvers, getSchema, getUserId, type Context } from "./utils";
 
 const server = new ApolloServer<Context>({
-	typeDefs: await getSchema(),
-	resolvers: await getResolvers(),
-	// only enable introspection for development
-	introspection: process.env.NODE_ENV === "development",
+  typeDefs: await getSchema(),
+  resolvers: await getResolvers(),
+  // only enable introspection for development
+  introspection: process.env.NODE_ENV === "development",
 });
 
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
@@ -15,15 +15,15 @@ const server = new ApolloServer<Context>({
 //  2. installs your ApolloServer instance as middleware
 //  3. prepares your app to handle incoming requests
 const { url } = await startStandaloneServer(server, {
-	listen: { port: 4000 },
-	context: async ({ req, res }) => {
-		return {
-			req,
-			res,
-			userId: getUserId(req),
-			prisma,
-		};
-	},
+  listen: { port: 4000 },
+  context: async ({ req, res }) => {
+    return {
+      req,
+      res,
+      userId: getUserId(req),
+      prisma,
+    };
+  },
 });
 
 console.log(`🚀  Server ready at: ${url}`);
