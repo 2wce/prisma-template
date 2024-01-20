@@ -12,9 +12,11 @@ async function main() {
 
 	const res = await prisma.$transaction([
 		prisma.post.create({
+			// @ts-ignore
 			data: posts,
 		}),
 		prisma.user.create({
+			// @ts-ignore
 			data: users,
 		}),
 	]);
