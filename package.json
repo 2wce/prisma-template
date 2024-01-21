@@ -13,7 +13,7 @@
 		"prestart": "npm run generate",
 		"start": "bun --watch src/index.ts",
 		"reset": "prisma migrate reset -f",
-		"seed": "ts-node prisma/seed.ts",
+		"seed": "bun run src/database/seed.ts",
 		"generate": "bun run src/utils/generateSchema.ts && prisma generate && graphql-codegen",
 		"studio": "prisma studio",
 		"migrate": "prisma migrate dev",

@@ -3,32 +3,23 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-async function main() {
-  //create posts dummy data
-  const posts = postFactory.buildList(5);
+try {
+	//create posts dummy data
+	const posts = postFactory.buildList(5);
 
-  // create user dummy data
-  const users = userFactory.buildList(1);
+	// create user dummy data
+	const user = userFactory.build();
 
-  const res = await prisma.$transaction([
-    prisma.post.create({
-      // @ts-ignore
-      data: posts,
-    }),
-    prisma.user.create({
-      // @ts-ignore
-      data: users,
-    }),
-  ]);
+	for await (const post of posts) {
+		await prisma.post.create({ data: post });
+	}
 
-  console.log("seed data created", { res });
+	await prisma.user.create({ data: user });
+
+	console.log("seed data created", { posts, user });
+} catch (error) {
+	console.error(error);
+	process.exit(1);
+} finally {
+	await prisma.$disconnect();
 }
-
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
