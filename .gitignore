@@ -3,3 +3,8 @@ dist/
 *.env
 src/generated
 .idea
+
+src/schema.graphql
+
+src/database/dev.db
+src/database/dev.db-journal

@@ -10,8 +10,8 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"prestart": "npm run generate && npm run reset",
-		"start": "bun run src/index.ts",
+		"prestart": "npm run generate",
+		"start": "bun --watch src/index.ts",
 		"reset": "prisma migrate reset -f",
 		"seed": "ts-node prisma/seed.ts",
 		"generate": "bun run src/utils/generateSchema.ts && prisma generate && graphql-codegen",

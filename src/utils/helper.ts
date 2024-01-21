@@ -66,9 +66,16 @@ export const getResolvers = async () => {
 	}
 
 	// Merge the resolvers into a single object.
-	// This is done by using 'Object.assign' with the spread operator to spread the 'resolvers' array into individual arguments.
-	const mergedResolvers = Object.assign({}, ...resolvers);
 
+	const mergedResolvers = resolvers.reduce((acc, resolver) => {
+		for (const key of Object.keys(resolver)) {
+			if (!acc[key]) {
+				acc[key] = {};
+			}
+			Object.assign(acc[key], resolver[key]);
+		}
+		return acc;
+	}, {});
 	// Return the merged resolvers.
 	return mergedResolvers;
 };
