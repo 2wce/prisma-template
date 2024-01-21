@@ -1,3 +1,10 @@
+# [1.40.0-beta.2](https://github.com/2wce/prisma-template/compare/v1.40.0-beta.1...v1.40.0-beta.2) (2024-01-21)
+
+
+### Bug Fixes
+
+* resolve posts ([23eab72](https://github.com/2wce/prisma-template/commit/23eab7274b55e5db78753e252cf91958cc4c6202))
+
 # [1.40.0-beta.1](https://github.com/2wce/prisma-template/compare/v1.39.0...v1.40.0-beta.1) (2024-01-20)
 
 
