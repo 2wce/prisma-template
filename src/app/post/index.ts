@@ -23,24 +23,24 @@ import Query from "./query";
  * The 'Post' object includes an 'author' method, which is a resolver function for getting the author of a post.
  */
 export default {
-  Query,
-  Mutation,
-  Post: {
-    author: (parent: Post, _args: unknown, { prisma }: Context) => {
-      /*
-       * The 'author' method takes three arguments: 'parent', '_args', and 'ctx'.
-       * 'parent' is the post for which to get the author.
-       * '_args' includes any arguments passed to the 'author' query, but it's not used in this function, so it's named '_args'.
-       * 'ctx' is the context of the resolver function, which includes the 'prisma' client.
-       *
-       * The function returns a promise that resolves to the author of the post.
-       * It uses the 'prisma' client to find the post in the database and get its author.
-       */
-      return prisma.post
-        .findUnique({
-          where: { id: parent.id },
-        })
-        .author();
-    },
-  },
+	Query,
+	Mutation,
+	Post: {
+		author: (parent: Post, _args: unknown, { prisma }: Context) => {
+			/*
+			 * The 'author' method takes three arguments: 'parent', '_args', and 'ctx'.
+			 * 'parent' is the post for which to get the author.
+			 * '_args' includes any arguments passed to the 'author' query, but it's not used in this function, so it's named '_args'.
+			 * 'ctx' is the context of the resolver function, which includes the 'prisma' client.
+			 *
+			 * The function returns a promise that resolves to the author of the post.
+			 * It uses the 'prisma' client to find the post in the database and get its author.
+			 */
+			return prisma.post
+				.findUnique({
+					where: { id: parent.id },
+				})
+				.author();
+		},
+	},
 };

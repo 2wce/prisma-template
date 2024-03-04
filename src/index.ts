@@ -1,6 +1,5 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { PORT } from "./config/app";
 import prisma from "./config/database";
 import { getResolvers, getSchema, getUserId, type Context } from "./utils";
 
@@ -11,6 +10,9 @@ const server = new ApolloServer<Context>({
 	resolvers,
 	// only enable introspection for development
 	introspection: process.env.NODE_ENV === "development",
+	status400ForVariableCoercionErrors: true,
+	// you can enable the following option during development to get more detailed error messages
+	includeStacktraceInErrorResponses: false,
 });
 
 // Passing an ApolloServer instance to the `startStandaloneServer` function:
@@ -18,7 +20,7 @@ const server = new ApolloServer<Context>({
 //  2. installs your ApolloServer instance as middleware
 //  3. prepares your app to handle incoming requests
 const { url } = await startStandaloneServer(server, {
-	listen: { port: PORT },
+	listen: { port: process.env.PORT || 4000 },
 	context: async ({ req, res }) => {
 		return {
 			req,

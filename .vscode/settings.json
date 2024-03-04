@@ -11,7 +11,7 @@
     "editor.defaultFormatter": "michelemelluso.code-beautifier"
   },
   "editor.codeActionsOnSave": {
-    "quickfix.biome": true,
+    "quickfix.biome": "explicit",
     "source.organizeImports": "explicit"
   },
   "yaml.customTags": [
