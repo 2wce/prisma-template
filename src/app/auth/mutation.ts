@@ -217,16 +217,12 @@ export default {
 				OTP: resetPasswordOtp,
 			});
 
-			try {
-				// Send an email to the user.
-				emailQueue.add({
-					recipientEmail: user.email,
-					html: message,
-					subject: "Forgot Password",
-				});
-			} catch (err) {
-				throw new Error("Failed to send email");
-			}
+			// Send an email to the user.
+			emailQueue.add({
+				recipientEmail: user.email,
+				html: message,
+				subject: "Forgot Password",
+			});
 
 			return true;
 		} catch (error) {
