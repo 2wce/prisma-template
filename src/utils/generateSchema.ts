@@ -69,6 +69,10 @@ type Query {
   ${query}
 }
 
+type Subscription {
+	postCreated: String
+}
+
 ${rest}
 `.trim();
 
