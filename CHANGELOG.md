@@ -1,3 +1,10 @@
+# [1.40.0-beta.4](https://github.com/2wce/prisma-template/compare/v1.40.0-beta.3...v1.40.0-beta.4) (2024-03-06)
+
+
+### Features
+
+* implement queues for emails ([be110ed](https://github.com/2wce/prisma-template/commit/be110edb43a886855bd8a549be044555ca29781f))
+
 # [1.40.0-beta.3](https://github.com/2wce/prisma-template/compare/v1.40.0-beta.2...v1.40.0-beta.3) (2024-01-21)
 
 
