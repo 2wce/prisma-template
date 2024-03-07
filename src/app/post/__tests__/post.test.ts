@@ -1,8 +1,8 @@
-import query from "@/app/post/query";
-import prisma from "@/config/database";
-import { clearData, postFactory, userFactory, type Context } from "@/utils";
 import { afterAll, beforeAll, expect, jest, test } from "bun:test";
 import type http from "http";
+import query from "@/app/post/query";
+import prisma from "@/config/database";
+import { type Context, clearData, postFactory, userFactory } from "@/utils";
 
 let context: Context;
 

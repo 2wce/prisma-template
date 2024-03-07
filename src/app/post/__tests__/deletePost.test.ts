@@ -1,8 +1,8 @@
-import mutation from "@/app/post/mutation";
-import prisma from "@/config/database";
-import { clearData, postFactory, userFactory, type Context } from "@/utils";
 import { afterEach, beforeEach, expect, jest, test } from "bun:test";
 import type http from "http";
+import mutation from "@/app/post/mutation";
+import prisma from "@/config/database";
+import { type Context, clearData, postFactory, userFactory } from "@/utils";
 
 let context: Context;
 

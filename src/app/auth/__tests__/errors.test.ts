@@ -5,7 +5,7 @@ import type {
   MutationForgotPasswordArgs,
   MutationResetPasswordArgs,
 } from "@/generated";
-import { createMockContext, type Context, type MockContext } from "@/utils";
+import { type Context, type MockContext, createMockContext } from "@/utils";
 
 let mockCtx: MockContext;
 let context: Context;

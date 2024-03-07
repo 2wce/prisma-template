@@ -4,7 +4,7 @@ import type {
   MutationPublishArgs,
   MutationUpdatePostArgs,
 } from "@/generated";
-import { formatError, type Context } from "@/utils";
+import { type Context, formatError } from "@/utils";
 
 export default {
   updatePost: async (
